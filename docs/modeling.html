@@ -1,0 +1,3493 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="distill" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ad0000; } /* Alert */
+code span.an { color: #5e5e5e; } /* Annotation */
+code span.at { color: #20794d; } /* Attribute */
+code span.bn { color: #ad0000; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007ba5; } /* ControlFlow */
+code span.ch { color: #20794d; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #5e5e5e; } /* Comment */
+code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+code span.dt { color: #ad0000; } /* DataType */
+code span.dv { color: #ad0000; } /* DecVal */
+code span.er { color: #ad0000; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #ad0000; } /* Float */
+code span.fu { color: #4758ab; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #5e5e5e; } /* Information */
+code span.kw { color: #007ba5; } /* Keyword */
+code span.op { color: #5e5e5e; } /* Operator */
+code span.ot { color: #007ba5; } /* Other */
+code span.pp { color: #ad0000; } /* Preprocessor */
+code span.sc { color: #20794d; } /* SpecialChar */
+code span.ss { color: #20794d; } /* SpecialString */
+code span.st { color: #20794d; } /* String */
+code span.va { color: #111111; } /* Variable */
+code span.vs { color: #20794d; } /* VerbatimString */
+code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+</style>
+
+  <!--radix_placeholder_meta_tags-->
+  <title>alookr vignettes: Classification Modeling</title>
+
+  <meta property="description" itemprop="description" content="Modeling and Evaluate, Predict for binary classification"/>
+
+
+  <!--  https://schema.org/Article -->
+  <meta property="article:published" itemprop="datePublished" content="2021-11-30"/>
+  <meta property="article:created" itemprop="dateCreated" content="2021-11-30"/>
+  <meta name="article:author" content="Choonghyun Ryu"/>
+
+  <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+  <meta property="og:title" content="alookr vignettes: Classification Modeling"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:description" content="Modeling and Evaluate, Predict for binary classification"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:site_name" content="alookr vignettes"/>
+
+  <!--  https://dev.twitter.com/cards/types/summary -->
+  <meta property="twitter:card" content="summary"/>
+  <meta property="twitter:title" content="alookr vignettes: Classification Modeling"/>
+  <meta property="twitter:description" content="Modeling and Evaluate, Predict for binary classification"/>
+
+  <!--/radix_placeholder_meta_tags-->
+  <!--radix_placeholder_rmarkdown_metadata-->
+
+  <script type="text/json" id="radix-rmarkdown-metadata">
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","site","output","author","date"]}},"value":[{"type":"character","attributes":{},"value":["Classification Modeling"]},{"type":"character","attributes":{},"value":["Modeling and Evaluate, Predict for binary classification\n"]},{"type":"character","attributes":{},"value":["distill::distill_website"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[3]}]}]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Choonghyun Ryu"]},{"type":"character","attributes":{},"value":["https://dataholic.netlify.app/"]}]}]},{"type":"character","attributes":{},"value":["2021-11-30"]}]}
+  </script>
+  <!--/radix_placeholder_rmarkdown_metadata-->
+  <!--radix_placeholder_navigation_in_header-->
+  <meta name="distill:offset" content=""/>
+
+  <script type="application/javascript">
+
+    window.headroom_prevent_pin = false;
+
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+
+      // initialize headroom for banner
+      var header = $('header').get(0);
+      var headerHeight = header.offsetHeight;
+      var headroom = new Headroom(header, {
+        tolerance: 5,
+        onPin : function() {
+          if (window.headroom_prevent_pin) {
+            window.headroom_prevent_pin = false;
+            headroom.unpin();
+          }
+        }
+      });
+      headroom.init();
+      if(window.location.hash)
+        headroom.unpin();
+      $(header).addClass('headroom--transition');
+
+      // offset scroll location for banner on hash change
+      // (see: https://github.com/WickyNilliams/headroom.js/issues/38)
+      window.addEventListener("hashchange", function(event) {
+        window.scrollTo(0, window.pageYOffset - (headerHeight + 25));
+      });
+
+      // responsive menu
+      $('.distill-site-header').each(function(i, val) {
+        var topnav = $(this);
+        var toggle = topnav.find('.nav-toggle');
+        toggle.on('click', function() {
+          topnav.toggleClass('responsive');
+        });
+      });
+
+      // nav dropdowns
+      $('.nav-dropbtn').click(function(e) {
+        $(this).next('.nav-dropdown-content').toggleClass('nav-dropdown-active');
+        $(this).parent().siblings('.nav-dropdown')
+           .children('.nav-dropdown-content').removeClass('nav-dropdown-active');
+      });
+      $("body").click(function(e){
+        $('.nav-dropdown-content').removeClass('nav-dropdown-active');
+      });
+      $(".nav-dropdown").click(function(e){
+        e.stopPropagation();
+      });
+    });
+  </script>
+
+  <style type="text/css">
+
+  /* Theme (user-documented overrideables for nav appearance) */
+
+  .distill-site-nav {
+    color: rgba(255, 255, 255, 0.8);
+    background-color: #0F2E3D;
+    font-size: 15px;
+    font-weight: 300;
+  }
+
+  .distill-site-nav a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .distill-site-nav a:hover {
+    color: white;
+  }
+
+  @media print {
+    .distill-site-nav {
+      display: none;
+    }
+  }
+
+  .distill-site-header {
+
+  }
+
+  .distill-site-footer {
+
+  }
+
+
+  /* Site Header */
+
+  .distill-site-header {
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 3;
+  }
+
+  .distill-site-header .nav-left {
+    display: inline-block;
+    margin-left: 8px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .distill-site-header .nav-left {
+      margin-left: 0;
+    }
+  }
+
+
+  .distill-site-header .nav-right {
+    float: right;
+    margin-right: 8px;
+  }
+
+  .distill-site-header a,
+  .distill-site-header .title {
+    display: inline-block;
+    text-align: center;
+    padding: 14px 10px 14px 10px;
+  }
+
+  .distill-site-header .title {
+    font-size: 18px;
+    min-width: 150px;
+  }
+
+  .distill-site-header .logo {
+    padding: 0;
+  }
+
+  .distill-site-header .logo img {
+    display: none;
+    max-height: 20px;
+    width: auto;
+    margin-bottom: -4px;
+  }
+
+  .distill-site-header .nav-image img {
+    max-height: 18px;
+    width: auto;
+    display: inline-block;
+    margin-bottom: -3px;
+  }
+
+
+
+  @media screen and (min-width: 1000px) {
+    .distill-site-header .logo img {
+      display: inline-block;
+    }
+    .distill-site-header .nav-left {
+      margin-left: 20px;
+    }
+    .distill-site-header .nav-right {
+      margin-right: 20px;
+    }
+    .distill-site-header .title {
+      padding-left: 12px;
+    }
+  }
+
+
+  .distill-site-header .nav-toggle {
+    display: none;
+  }
+
+  .nav-dropdown {
+    display: inline-block;
+    position: relative;
+  }
+
+  .nav-dropdown .nav-dropbtn {
+    border: none;
+    outline: none;
+    color: rgba(255, 255, 255, 0.8);
+    padding: 16px 10px;
+    background-color: transparent;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    margin: 0;
+    margin-top: 1px;
+    z-index: 2;
+  }
+
+  .nav-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 200px;
+    border: 1px solid rgba(0,0,0,0.15);
+    border-radius: 4px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+    z-index: 1;
+    margin-top: 2px;
+    white-space: nowrap;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+
+  .nav-dropdown-content hr {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-dropdown-active {
+    display: block;
+  }
+
+  .nav-dropdown-content a, .nav-dropdown-content .nav-dropdown-header {
+    color: black;
+    padding: 6px 24px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+
+  .nav-dropdown-content .nav-dropdown-header {
+    display: block;
+    padding: 5px 24px;
+    padding-bottom: 0;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #999999;
+    white-space: nowrap;
+  }
+
+  .nav-dropdown:hover .nav-dropbtn {
+    color: white;
+  }
+
+  .nav-dropdown-content a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+  .nav-right .nav-dropdown-content {
+    margin-left: -45%;
+    right: 0;
+  }
+
+  @media screen and (max-width: 768px) {
+    .distill-site-header a, .distill-site-header .nav-dropdown  {display: none;}
+    .distill-site-header a.nav-toggle {
+      float: right;
+      display: block;
+    }
+    .distill-site-header .title {
+      margin-left: 0;
+    }
+    .distill-site-header .nav-right {
+      margin-right: 0;
+    }
+    .distill-site-header {
+      overflow: hidden;
+    }
+    .nav-right .nav-dropdown-content {
+      margin-left: 0;
+    }
+  }
+
+
+  @media screen and (max-width: 768px) {
+    .distill-site-header.responsive {position: relative; min-height: 500px; }
+    .distill-site-header.responsive a.nav-toggle {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .distill-site-header.responsive a,
+    .distill-site-header.responsive .nav-dropdown {
+      display: block;
+      text-align: left;
+    }
+    .distill-site-header.responsive .nav-left,
+    .distill-site-header.responsive .nav-right {
+      width: 100%;
+    }
+    .distill-site-header.responsive .nav-dropdown {float: none;}
+    .distill-site-header.responsive .nav-dropdown-content {position: relative;}
+    .distill-site-header.responsive .nav-dropdown .nav-dropbtn {
+      display: block;
+      width: 100%;
+      text-align: left;
+    }
+  }
+
+  /* Site Footer */
+
+  .distill-site-footer {
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    z-index: 3;
+    margin-top: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    text-align: center;
+  }
+
+  /* Headroom */
+
+  d-title {
+    padding-top: 6rem;
+  }
+
+  @media print {
+    d-title {
+      padding-top: 4rem;
+    }
+  }
+
+  .headroom {
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .headroom--transition {
+    transition: all .4s ease-in-out;
+  }
+
+  .headroom--unpinned {
+    top: -100px;
+  }
+
+  .headroom--pinned {
+    top: 0;
+  }
+
+  /* adjust viewport for navbar height */
+  /* helps vertically center bootstrap (non-distill) content */
+  .min-vh-100 {
+    min-height: calc(100vh - 100px) !important;
+  }
+
+  </style>
+
+  <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
+  <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
+  <script src="site_libs/headroom-0.9.4/headroom.min.js"></script>
+  <script src="site_libs/autocomplete-0.37.1/autocomplete.min.js"></script>
+  <script src="site_libs/fuse-6.4.1/fuse.min.js"></script>
+
+  <script type="application/javascript">
+
+  function getMeta(metaName) {
+    var metas = document.getElementsByTagName('meta');
+    for (let i = 0; i < metas.length; i++) {
+      if (metas[i].getAttribute('name') === metaName) {
+        return metas[i].getAttribute('content');
+      }
+    }
+    return '';
+  }
+
+  function offsetURL(url) {
+    var offset = getMeta('distill:offset');
+    return offset ? offset + '/' + url : url;
+  }
+
+  function createFuseIndex() {
+
+    // create fuse index
+    var options = {
+      keys: [
+        { name: 'title', weight: 20 },
+        { name: 'categories', weight: 15 },
+        { name: 'description', weight: 10 },
+        { name: 'contents', weight: 5 },
+      ],
+      ignoreLocation: true,
+      threshold: 0
+    };
+    var fuse = new window.Fuse([], options);
+
+    // fetch the main search.json
+    return fetch(offsetURL('search.json'))
+      .then(function(response) {
+        if (response.status == 200) {
+          return response.json().then(function(json) {
+            // index main articles
+            json.articles.forEach(function(article) {
+              fuse.add(article);
+            });
+            // download collections and index their articles
+            return Promise.all(json.collections.map(function(collection) {
+              return fetch(offsetURL(collection)).then(function(response) {
+                if (response.status === 200) {
+                  return response.json().then(function(articles) {
+                    articles.forEach(function(article) {
+                      fuse.add(article);
+                    });
+                  })
+                } else {
+                  return Promise.reject(
+                    new Error('Unexpected status from search index request: ' +
+                              response.status)
+                  );
+                }
+              });
+            })).then(function() {
+              return fuse;
+            });
+          });
+
+        } else {
+          return Promise.reject(
+            new Error('Unexpected status from search index request: ' +
+                        response.status)
+          );
+        }
+      });
+  }
+
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+
+    // get search element (bail if we don't have one)
+    var searchEl = window.document.getElementById('distill-search');
+    if (!searchEl)
+      return;
+
+    createFuseIndex()
+      .then(function(fuse) {
+
+        // make search box visible
+        searchEl.classList.remove('hidden');
+
+        // initialize autocomplete
+        var options = {
+          autoselect: true,
+          hint: false,
+          minLength: 2,
+        };
+        window.autocomplete(searchEl, options, [{
+          source: function(query, callback) {
+            const searchOptions = {
+              isCaseSensitive: false,
+              shouldSort: true,
+              minMatchCharLength: 2,
+              limit: 10,
+            };
+            var results = fuse.search(query, searchOptions);
+            callback(results
+              .map(function(result) { return result.item; })
+            );
+          },
+          templates: {
+            suggestion: function(suggestion) {
+              var img = suggestion.preview && Object.keys(suggestion.preview).length > 0
+                ? `<img src="${offsetURL(suggestion.preview)}"</img>`
+                : '';
+              var html = `
+                <div class="search-item">
+                  <h3>${suggestion.title}</h3>
+                  <div class="search-item-description">
+                    ${suggestion.description || ''}
+                  </div>
+                  <div class="search-item-preview">
+                    ${img}
+                  </div>
+                </div>
+              `;
+              return html;
+            }
+          }
+        }]).on('autocomplete:selected', function(event, suggestion) {
+          window.location.href = offsetURL(suggestion.path);
+        });
+        // remove inline display style on autocompleter (we want to
+        // manage responsive display via css)
+        $('.algolia-autocomplete').css("display", "");
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+
+  });
+
+  </script>
+
+  <style type="text/css">
+
+  .nav-search {
+    font-size: x-small;
+  }
+
+  /* Algolioa Autocomplete */
+
+  .algolia-autocomplete {
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: sub;
+    background-color: white;
+    color: black;
+    padding: 6px;
+    padding-top: 8px;
+    padding-bottom: 0;
+    border-radius: 6px;
+    border: 1px #0F2E3D solid;
+    width: 180px;
+  }
+
+
+  @media screen and (max-width: 768px) {
+    .distill-site-nav .algolia-autocomplete {
+      display: none;
+      visibility: hidden;
+    }
+    .distill-site-nav.responsive .algolia-autocomplete {
+      display: inline-block;
+      visibility: visible;
+    }
+    .distill-site-nav.responsive .algolia-autocomplete .aa-dropdown-menu {
+      margin-left: 0;
+      width: 400px;
+      max-height: 400px;
+    }
+  }
+
+  .algolia-autocomplete .aa-input, .algolia-autocomplete .aa-hint {
+    width: 90%;
+    outline: none;
+    border: none;
+  }
+
+  .algolia-autocomplete .aa-hint {
+    color: #999;
+  }
+  .algolia-autocomplete .aa-dropdown-menu {
+    width: 550px;
+    max-height: 70vh;
+    overflow-x: visible;
+    overflow-y: scroll;
+    padding: 5px;
+    margin-top: 3px;
+    margin-left: -150px;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid #999;
+    border-top: none;
+  }
+
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion {
+    cursor: pointer;
+    padding: 5px 4px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion:last-of-type {
+    border-bottom: none;
+    margin-bottom: 2px;
+  }
+
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item {
+    overflow: hidden;
+    font-size: 0.8em;
+    line-height: 1.4em;
+  }
+
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item h3 {
+    font-size: 1rem;
+    margin-block-start: 0;
+    margin-block-end: 5px;
+  }
+
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-description {
+    display: inline-block;
+    overflow: hidden;
+    height: 2.8em;
+    width: 80%;
+    margin-right: 4%;
+  }
+
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview {
+    display: inline-block;
+    width: 15%;
+  }
+
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview img {
+    height: 3em;
+    width: auto;
+    display: none;
+  }
+
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview img[src] {
+    display: initial;
+  }
+
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion.aa-cursor {
+    background-color: #eee;
+  }
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion em {
+    font-weight: bold;
+    font-style: normal;
+  }
+
+  </style>
+
+
+  <!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+
+  <style type="text/css">
+
+  body {
+    background-color: white;
+  }
+
+  .pandoc-table {
+    width: 100%;
+  }
+
+  .pandoc-table>caption {
+    margin-bottom: 10px;
+  }
+
+  .pandoc-table th:not([align]) {
+    text-align: left;
+  }
+
+  .pagedtable-footer {
+    font-size: 15px;
+  }
+
+  d-byline .byline {
+    grid-template-columns: 2fr 2fr;
+  }
+
+  d-byline .byline h3 {
+    margin-block-start: 1.5em;
+  }
+
+  d-byline .byline .authors-affiliations h3 {
+    margin-block-start: 0.5em;
+  }
+
+  .authors-affiliations .orcid-id {
+    width: 16px;
+    height:16px;
+    margin-left: 4px;
+    margin-right: 4px;
+    vertical-align: middle;
+    padding-bottom: 2px;
+  }
+
+  d-title .dt-tags {
+    margin-top: 1em;
+    grid-column: text;
+  }
+
+  .dt-tags .dt-tag {
+    text-decoration: none;
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0em 0.4em;
+    margin-right: 0.5em;
+    margin-bottom: 0.4em;
+    font-size: 70%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  d-article table.gt_table td,
+  d-article table.gt_table th {
+    border-bottom: none;
+  }
+
+  .html-widget {
+    margin-bottom: 2.0em;
+  }
+
+  .l-screen-inset {
+    padding-right: 16px;
+  }
+
+  .l-screen .caption {
+    margin-left: 10px;
+  }
+
+  .shaded {
+    background: rgb(247, 247, 247);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .html-widget {
+    margin-bottom: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .shaded-content {
+    background: white;
+  }
+
+  .text-output {
+    margin-top: 0;
+    line-height: 1.5em;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  d-article {
+    padding-top: 2.5rem;
+    padding-bottom: 30px;
+  }
+
+  d-appendix {
+    padding-top: 30px;
+  }
+
+  d-article>p>img {
+    width: 100%;
+  }
+
+  d-article h2 {
+    margin: 1rem 0 1.5rem 0;
+  }
+
+  d-article h3 {
+    margin-top: 1.5rem;
+  }
+
+  d-article iframe {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 2.0em;
+    width: 100%;
+  }
+
+  /* Tweak code blocks */
+
+  d-article div.sourceCode code,
+  d-article pre code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: auto;
+  }
+
+  d-article div.sourceCode {
+    background-color: white;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 10px;
+    font-size: 12px;
+    border-left: 2px solid rgba(0,0,0,0.1);
+  }
+
+  d-article pre {
+    font-size: 12px;
+    color: black;
+    background: none;
+    margin-top: 0;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  d-article pre a {
+    border-bottom: none;
+  }
+
+  d-article pre a:hover {
+    border-bottom: none;
+    text-decoration: underline;
+  }
+
+  d-article details {
+    grid-column: text;
+    margin-bottom: 0.8em;
+  }
+
+  @media(min-width: 768px) {
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: visible !important;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 18px;
+    font-size: 14px;
+  }
+
+  d-article pre {
+    font-size: 14px;
+  }
+
+  }
+
+  figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  /* CSS for d-contents */
+
+  .d-contents {
+    grid-column: text;
+    color: rgba(0,0,0,0.8);
+    font-size: 0.9em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+    padding-left: 0.25em;
+    justify-self: start;
+  }
+
+  @media(min-width: 1000px) {
+    .d-contents.d-contents-float {
+      height: 0;
+      grid-column-start: 1;
+      grid-column-end: 4;
+      justify-self: center;
+      padding-right: 3em;
+      padding-left: 2em;
+    }
+  }
+
+  .d-contents nav h3 {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 1em;
+  }
+
+  .d-contents li {
+    list-style-type: none
+  }
+
+  .d-contents nav > ul {
+    padding-left: 0;
+  }
+
+  .d-contents ul {
+    padding-left: 1em
+  }
+
+  .d-contents nav ul li {
+    margin-top: 0.6em;
+    margin-bottom: 0.2em;
+  }
+
+  .d-contents nav a {
+    font-size: 13px;
+    border-bottom: none;
+    text-decoration: none
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  .d-contents nav a:hover {
+    text-decoration: underline solid rgba(0, 0, 0, 0.6)
+  }
+
+  .d-contents nav > ul > li > a {
+    font-weight: 600;
+  }
+
+  .d-contents nav > ul > li > ul {
+    font-weight: inherit;
+  }
+
+  .d-contents nav > ul > li > ul > li {
+    margin-top: 0.2em;
+  }
+
+
+  .d-contents nav ul {
+    margin-top: 0;
+    margin-bottom: 0.25em;
+  }
+
+  .d-article-with-toc h2:nth-child(2) {
+    margin-top: 0;
+  }
+
+
+  /* Figure */
+
+  .figure {
+    position: relative;
+    margin-bottom: 2.5em;
+    margin-top: 1.5em;
+  }
+
+  .figure img {
+    width: 100%;
+  }
+
+  .figure .caption {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12px;
+    line-height: 1.5em;
+  }
+
+  .figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  .figure .caption a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .figure .caption b,
+  .figure .caption strong, {
+    font-weight: 600;
+    color: rgba(0, 0, 0, 1.0);
+  }
+
+  /* Citations */
+
+  d-article .citation {
+    color: inherit;
+    cursor: inherit;
+  }
+
+  div.hanging-indent{
+    margin-left: 1em; text-indent: -1em;
+  }
+
+  /* Citation hover box */
+
+  .tippy-box[data-theme~=light-border] {
+    background-color: rgba(250, 250, 250, 0.95);
+  }
+
+  .tippy-content > p {
+    margin-bottom: 0;
+    padding: 2px;
+  }
+
+
+  /* Tweak 1000px media break to show more text */
+
+  @media(min-width: 1000px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 16px;
+    }
+
+    .grid {
+      grid-column-gap: 16px;
+    }
+
+    d-article {
+      font-size: 1.06rem;
+      line-height: 1.7em;
+    }
+    figure .caption, .figure .caption, figure figcaption {
+      font-size: 13px;
+    }
+  }
+
+  @media(min-width: 1180px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 32px;
+    }
+
+    .grid {
+      grid-column-gap: 32px;
+    }
+  }
+
+
+  /* Get the citation styles for the appendix (not auto-injected on render since
+     we do our own rendering of the citation appendix) */
+
+  d-appendix .citation-appendix,
+  .d-appendix .citation-appendix {
+    font-size: 11px;
+    line-height: 15px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    padding-left: 18px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: rgba(0, 0, 0, 0.02);
+    padding: 10px 18px;
+    border-radius: 3px;
+    color: rgba(150, 150, 150, 1);
+    overflow: hidden;
+    margin-top: -12px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  /* Include appendix styles here so they can be overridden */
+
+  d-appendix {
+    contain: layout style;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-top: 60px;
+    margin-bottom: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    color: rgba(0,0,0,0.5);
+    padding-top: 60px;
+    padding-bottom: 48px;
+  }
+
+  d-appendix h3 {
+    grid-column: page-start / text-start;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 1em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.65);
+  }
+
+  d-appendix h3 + * {
+    margin-top: 1em;
+  }
+
+  d-appendix ol {
+    padding: 0 0 0 15px;
+  }
+
+  @media (min-width: 768px) {
+    d-appendix ol {
+      padding: 0 0 0 30px;
+      margin-left: -30px;
+    }
+  }
+
+  d-appendix li {
+    margin-bottom: 1em;
+  }
+
+  d-appendix a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  d-appendix > * {
+    grid-column: text;
+  }
+
+  d-appendix > d-footnote-list,
+  d-appendix > d-citation-list,
+  d-appendix > distill-appendix {
+    grid-column: screen;
+  }
+
+  /* Include footnote styles here so they can be overridden */
+
+  d-footnote-list {
+    contain: layout style;
+  }
+
+  d-footnote-list > * {
+    grid-column: text;
+  }
+
+  d-footnote-list a.footnote-backlink {
+    color: rgba(0,0,0,0.3);
+    padding-left: 0.5em;
+  }
+
+
+
+  /* Anchor.js */
+
+  .anchorjs-link {
+    /*transition: all .25s linear; */
+    text-decoration: none;
+    border-bottom: none;
+  }
+  *:hover > .anchorjs-link {
+    margin-left: -1.125em !important;
+    text-decoration: none;
+    border-bottom: none;
+  }
+
+  /* Social footer */
+
+  .social_footer {
+    margin-top: 30px;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.67);
+  }
+
+  .disqus-comments {
+    margin-right: 30px;
+  }
+
+  .disqus-comment-count {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+
+  #disqus_thread {
+    margin-top: 30px;
+  }
+
+  .article-sharing a {
+    border-bottom: none;
+    margin-right: 8px;
+  }
+
+  .article-sharing a:hover {
+    border-bottom: none;
+  }
+
+  .sidebar-section.subscribe {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .subscribe p {
+    margin-bottom: 0.5em;
+  }
+
+
+  .article-footer .subscribe {
+    font-size: 15px;
+    margin-top: 45px;
+  }
+
+
+  .sidebar-section.custom {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .custom p {
+    margin-bottom: 0.5em;
+  }
+
+  /* Styles for listing layout (hide title) */
+  .layout-listing d-title, .layout-listing .d-title {
+    display: none;
+  }
+
+  /* Styles for posts lists (not auto-injected) */
+
+
+  .posts-with-sidebar {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+
+  .posts-list .description h2,
+  .posts-list .description p {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .posts-list .description h2 {
+    font-weight: 700;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .posts-list h2.post-tag {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 12px;
+  }
+  .posts-list {
+    margin-top: 60px;
+    margin-bottom: 24px;
+  }
+
+  .posts-list .post-preview {
+    text-decoration: none;
+    overflow: hidden;
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 24px 0;
+  }
+
+  .post-preview-last {
+    border-bottom: none !important;
+  }
+
+  .posts-list .posts-list-caption {
+    grid-column: screen;
+    font-weight: 400;
+  }
+
+  .posts-list .post-preview h2 {
+    margin: 0 0 6px 0;
+    line-height: 1.2em;
+    font-style: normal;
+    font-size: 24px;
+  }
+
+  .posts-list .post-preview p {
+    margin: 0 0 12px 0;
+    line-height: 1.4em;
+    font-size: 16px;
+  }
+
+  .posts-list .post-preview .thumbnail {
+    box-sizing: border-box;
+    margin-bottom: 24px;
+    position: relative;
+    max-width: 500px;
+  }
+  .posts-list .post-preview img {
+    width: 100%;
+    display: block;
+  }
+
+  .posts-list .metadata {
+    font-size: 12px;
+    line-height: 1.4em;
+    margin-bottom: 18px;
+  }
+
+  .posts-list .metadata > * {
+    display: inline-block;
+  }
+
+  .posts-list .metadata .publishedDate {
+    margin-right: 2em;
+  }
+
+  .posts-list .metadata .dt-authors {
+    display: block;
+    margin-top: 0.3em;
+    margin-right: 2em;
+  }
+
+  .posts-list .dt-tags {
+    display: block;
+    line-height: 1em;
+  }
+
+  .posts-list .dt-tags .dt-tag {
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0.3em 0.4em;
+    margin-right: 0.2em;
+    margin-bottom: 0.4em;
+    font-size: 60%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .posts-list img {
+    opacity: 1;
+  }
+
+  .posts-list img[data-src] {
+    opacity: 0;
+  }
+
+  .posts-more {
+    clear: both;
+  }
+
+
+  .posts-sidebar {
+    font-size: 16px;
+  }
+
+  .posts-sidebar h3 {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .sidebar-section {
+    margin-bottom: 30px;
+  }
+
+  .categories ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .categories li {
+    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 0;
+  }
+
+  .categories li>a {
+    border-bottom: none;
+  }
+
+  .categories li>a:hover {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  }
+
+  .categories .active {
+    font-weight: 600;
+  }
+
+  .categories .category-count {
+    color: rgba(0, 0, 0, 0.4);
+  }
+
+
+  @media(min-width: 768px) {
+    .posts-list .post-preview h2 {
+      font-size: 26px;
+    }
+    .posts-list .post-preview .thumbnail {
+      float: right;
+      width: 30%;
+      margin-bottom: 0;
+    }
+    .posts-list .post-preview .description {
+      float: left;
+      width: 45%;
+    }
+    .posts-list .post-preview .metadata {
+      float: left;
+      width: 20%;
+      margin-top: 8px;
+    }
+    .posts-list .post-preview p {
+      margin: 0 0 12px 0;
+      line-height: 1.5em;
+      font-size: 16px;
+    }
+    .posts-with-sidebar .posts-list {
+      float: left;
+      width: 75%;
+    }
+    .posts-with-sidebar .posts-sidebar {
+      float: right;
+      width: 20%;
+      margin-top: 60px;
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
+  }
+
+
+  /* Improve display for browsers without grid (IE/Edge <= 15) */
+
+  .downlevel {
+    line-height: 1.6em;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+  }
+
+  .downlevel .d-title {
+    padding-top: 6rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .downlevel .d-title h1 {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.1em;
+    margin: 0 0 0.5rem;
+  }
+
+  .downlevel .d-title p {
+    font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 1.55em;
+    margin-top: 0;
+  }
+
+  .downlevel .d-byline {
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    font-size: 0.8rem;
+    line-height: 1.8em;
+  }
+
+  .downlevel .section-separator {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .downlevel .d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+
+
+  .downlevel .d-appendix {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: none;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.5);
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+
+  .downlevel .footnotes ol {
+    padding-left: 13px;
+  }
+
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @media(min-width: 768px) {
+    .downlevel .base-grid,
+    .downlevel .distill-header,
+    .downlevel .d-title,
+    .downlevel .d-abstract,
+    .downlevel .d-article,
+    .downlevel .d-appendix,
+    .downlevel .distill-appendix,
+    .downlevel .d-byline,
+    .downlevel .d-footnote-list,
+    .downlevel .d-citation-list,
+    .downlevel .distill-footer,
+    .downlevel .appendix-bottom,
+    .downlevel .posts-container {
+    padding-left: 150px;
+    padding-right: 150px;
+    max-width: 900px;
+  }
+  }
+
+  .downlevel pre code {
+    display: block;
+    border-left: 2px solid rgba(0, 0, 0, .1);
+    padding: 0 0 0 20px;
+    font-size: 14px;
+  }
+
+  .downlevel code, .downlevel pre {
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  .downlevel .posts-list .post-preview {
+    color: inherit;
+  }
+
+
+
+  </style>
+
+  <script type="application/javascript">
+
+  function is_downlevel_browser() {
+    if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                   window.navigator.userAgent)) {
+      return true;
+    } else {
+      return window.load_distill_framework === undefined;
+    }
+  }
+
+  // show body when load is complete
+  function on_load_complete() {
+
+    // add anchors
+    if (window.anchors) {
+      window.anchors.options.placement = 'left';
+      window.anchors.add('d-article > h2, d-article > h3, d-article > h4, d-article > h5');
+    }
+
+
+    // set body to visible
+    document.body.style.visibility = 'visible';
+
+    // force redraw for leaflet widgets
+    if (window.HTMLWidgets) {
+      var maps = window.HTMLWidgets.findAll(".leaflet");
+      $.each(maps, function(i, el) {
+        var map = this.getMap();
+        map.invalidateSize();
+        map.eachLayer(function(layer) {
+          if (layer instanceof L.TileLayer)
+            layer.redraw();
+        });
+      });
+    }
+
+    // trigger 'shown' so htmlwidgets resize
+    $('d-article').trigger('shown');
+  }
+
+  function init_distill() {
+
+    init_common();
+
+    // create front matter
+    var front_matter = $('<d-front-matter></d-front-matter>');
+    $('#distill-front-matter').wrap(front_matter);
+
+    // create d-title
+    $('.d-title').changeElementType('d-title');
+
+    // create d-byline
+    var byline = $('<d-byline></d-byline>');
+    $('.d-byline').replaceWith(byline);
+
+    // create d-article
+    var article = $('<d-article></d-article>');
+    $('.d-article').wrap(article).children().unwrap();
+
+    // move posts container into article
+    $('.posts-container').appendTo($('d-article'));
+
+    // create d-appendix
+    $('.d-appendix').changeElementType('d-appendix');
+
+    // flag indicating that we have appendix items
+    var appendix = $('.appendix-bottom').children('h3').length > 0;
+
+    // replace footnotes with <d-footnote>
+    $('.footnote-ref').each(function(i, val) {
+      appendix = true;
+      var href = $(this).attr('href');
+      var id = href.replace('#', '');
+      var fn = $('#' + id);
+      var fn_p = $('#' + id + '>p');
+      fn_p.find('.footnote-back').remove();
+      var text = fn_p.html();
+      var dtfn = $('<d-footnote></d-footnote>');
+      dtfn.html(text);
+      $(this).replaceWith(dtfn);
+    });
+    // remove footnotes
+    $('.footnotes').remove();
+
+    // move refs into #references-listing
+    $('#references-listing').replaceWith($('#refs'));
+
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      var id = $(this).attr('id');
+      $('.d-contents a[href="#' + id + '"]').parent().remove();
+      appendix = true;
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+    });
+
+    // show d-appendix if we have appendix content
+    $("d-appendix").css('display', appendix ? 'grid' : 'none');
+
+    // localize layout chunks to just output
+    $('.layout-chunk').each(function(i, val) {
+
+      // capture layout
+      var layout = $(this).attr('data-layout');
+
+      // apply layout to markdown level block elements
+      var elements = $(this).children().not('details, div.sourceCode, pre, script');
+      elements.each(function(i, el) {
+        var layout_div = $('<div class="' + layout + '"></div>');
+        if (layout_div.hasClass('shaded')) {
+          var shaded_content = $('<div class="shaded-content"></div>');
+          $(this).wrap(shaded_content);
+          $(this).parent().wrap(layout_div);
+        } else {
+          $(this).wrap(layout_div);
+        }
+      });
+
+
+      // unwrap the layout-chunk div
+      $(this).children().unwrap();
+    });
+
+    // remove code block used to force  highlighting css
+    $('.distill-force-highlighting-css').parent().remove();
+
+    // remove empty line numbers inserted by pandoc when using a
+    // custom syntax highlighting theme
+    $('code.sourceCode a:empty').remove();
+
+    // load distill framework
+    load_distill_framework();
+
+    // wait for window.distillRunlevel == 4 to do post processing
+    function distill_post_process() {
+
+      if (!window.distillRunlevel || window.distillRunlevel < 4)
+        return;
+
+      // hide author/affiliations entirely if we have no authors
+      var front_matter = JSON.parse($("#distill-front-matter").html());
+      var have_authors = front_matter.authors && front_matter.authors.length > 0;
+      if (!have_authors)
+        $('d-byline').addClass('hidden');
+
+      // article with toc class
+      $('.d-contents').parent().addClass('d-article-with-toc');
+
+      // strip links that point to #
+      $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+
+      // add orcid ids
+      $('.authors-affiliations').find('.author').each(function(i, el) {
+        var orcid_id = front_matter.authors[i].orcidID;
+        if (orcid_id) {
+          var a = $('<a></a>');
+          a.attr('href', 'https://orcid.org/' + orcid_id);
+          var img = $('<img></img>');
+          img.addClass('orcid-id');
+          img.attr('alt', 'ORCID ID');
+          img.attr('src','data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==');
+          a.append(img);
+          $(this).append(a);
+        }
+      });
+
+      // hide elements of author/affiliations grid that have no value
+      function hide_byline_column(caption) {
+        $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+      }
+
+      // affiliations
+      var have_affiliations = false;
+      for (var i = 0; i<front_matter.authors.length; ++i) {
+        var author = front_matter.authors[i];
+        if (author.affiliation !== "&nbsp;") {
+          have_affiliations = true;
+          break;
+        }
+      }
+      if (!have_affiliations)
+        $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+
+      // published date
+      if (!front_matter.publishedDate)
+        hide_byline_column("Published");
+
+      // document object identifier
+      var doi = $('d-byline').find('h3:contains("DOI")');
+      var doi_p = doi.next().empty();
+      if (!front_matter.doi) {
+        // if we have a citation and valid citationText then link to that
+        if ($('#citation').length > 0 && front_matter.citationText) {
+          doi.html('Citation');
+          $('<a href="#citation"></a>')
+            .text(front_matter.citationText)
+            .appendTo(doi_p);
+        } else {
+          hide_byline_column("DOI");
+        }
+      } else {
+        $('<a></a>')
+           .attr('href', "https://doi.org/" + front_matter.doi)
+           .html(front_matter.doi)
+           .appendTo(doi_p);
+      }
+
+       // change plural form of authors/affiliations
+      if (front_matter.authors.length === 1) {
+        var grid = $('.authors-affiliations');
+        grid.children('h3:contains("Authors")').text('Author');
+        grid.children('h3:contains("Affiliations")').text('Affiliation');
+      }
+
+      // remove d-appendix and d-footnote-list local styles
+      $('d-appendix > style:first-child').remove();
+      $('d-footnote-list > style:first-child').remove();
+
+      // move appendix-bottom entries to the bottom
+      $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+      $('.appendix-bottom').remove();
+
+      // hoverable references
+      $('span.citation[data-cites]').each(function() {
+        var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
+        window.tippy(this, {
+          allowHTML: true,
+          content: refHtml,
+          maxWidth: 500,
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start'
+        });
+      });
+
+      // clear polling timer
+      clearInterval(tid);
+
+      // show body now that everything is ready
+      on_load_complete();
+    }
+
+    var tid = setInterval(distill_post_process, 50);
+    distill_post_process();
+
+  }
+
+  function init_downlevel() {
+
+    init_common();
+
+     // insert hr after d-title
+    $('.d-title').after($('<hr class="section-separator"/>'));
+
+    // check if we have authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+
+    // manage byline/border
+    if (!have_authors)
+      $('.d-byline').remove();
+    $('.d-byline').after($('<hr class="section-separator"/>'));
+    $('.d-byline a').remove();
+
+    // remove toc
+    $('.d-contents').remove();
+
+    // move appendix elements
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+    });
+
+
+    // inject headers into references and footnotes
+    var refs_header = $('<h3></h3>');
+    refs_header.text('References');
+    $('#refs').prepend(refs_header);
+
+    var footnotes_header = $('<h3></h3');
+    footnotes_header.text('Footnotes');
+    $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+
+    // remove appendix if it's empty
+    if ($('.d-appendix').children().length === 0)
+      $('.d-appendix').remove();
+
+    // prepend separator above appendix
+    $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+
+    // trim code
+    $('pre>code').each(function(i, val) {
+      $(this).html($.trim($(this).html()));
+    });
+
+    // move posts-container right before article
+    $('.posts-container').insertBefore($('.d-article'));
+
+    $('body').addClass('downlevel');
+
+    on_load_complete();
+  }
+
+
+  function init_common() {
+
+    // jquery plugin to change element types
+    (function($) {
+      $.fn.changeElementType = function(newType) {
+        var attrs = {};
+
+        $.each(this[0].attributes, function(idx, attr) {
+          attrs[attr.nodeName] = attr.nodeValue;
+        });
+
+        this.replaceWith(function() {
+          return $("<" + newType + "/>", attrs).append($(this).contents());
+        });
+      };
+    })(jQuery);
+
+    // prevent underline for linked images
+    $('a > img').parent().css({'border-bottom' : 'none'});
+
+    // mark non-body figures created by knitr chunks as 100% width
+    $('.layout-chunk').each(function(i, val) {
+      var figures = $(this).find('img, .html-widget');
+      if ($(this).attr('data-layout') !== "l-body") {
+        figures.css('width', '100%');
+      } else {
+        figures.css('max-width', '100%');
+        figures.filter("[width]").each(function(i, val) {
+          var fig = $(this);
+          fig.css('width', fig.attr('width') + 'px');
+        });
+
+      }
+    });
+
+    // auto-append index.html to post-preview links in file: protocol
+    // and in rstudio ide preview
+    $('.post-preview').each(function(i, val) {
+      if (window.location.protocol === "file:")
+        $(this).attr('href', $(this).attr('href') + "index.html");
+    });
+
+    // get rid of index.html references in header
+    if (window.location.protocol !== "file:") {
+      $('.distill-site-header a[href]').each(function(i,val) {
+        $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+      });
+    }
+
+    // add class to pandoc style tables
+    $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+    $('.kable-table').children('table').addClass('pandoc-table');
+
+    // add figcaption style to table captions
+    $('caption').parent('table').addClass("figcaption");
+
+    // initialize posts list
+    if (window.init_posts_list)
+      window.init_posts_list();
+
+    // implmement disqus comment link
+    $('.disqus-comment-count').click(function() {
+      window.headroom_prevent_pin = true;
+      $('#disqus_thread').toggleClass('hidden');
+      if (!$('#disqus_thread').hasClass('hidden')) {
+        var offset = $(this).offset();
+        $(window).resize();
+        $('html, body').animate({
+          scrollTop: offset.top - 35
+        });
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    if (is_downlevel_browser())
+      init_downlevel();
+    else
+      window.addEventListener('WebComponentsReady', init_distill);
+  });
+
+  </script>
+
+  <style type="text/css">
+  /* base variables */
+
+  /* Edit the CSS properties in this file to create a custom
+     Distill theme. Only edit values in the right column
+     for each row; values shown are the CSS defaults.
+     To return any property to the default,
+     you may set its value to: unset
+     All rows must end with a semi-colon.                      */
+
+  /* Optional: embed custom fonts here with `@import`          */
+  /* This must remain at the top of this file.                 */
+
+
+
+  html {
+    /*-- Main font sizes --*/
+    --title-size:      50px;
+    --body-size:       1.06rem;
+    --code-size:       14px;
+    --aside-size:      12px;
+    --fig-cap-size:    13px;
+    /*-- Main font colors --*/
+    --title-color:     #000000;
+    --header-color:    rgba(0, 0, 0, 0.8);
+    --body-color:      rgba(0, 0, 0, 0.8);
+    --aside-color:     rgba(0, 0, 0, 0.6);
+    --fig-cap-color:   rgba(0, 0, 0, 0.6);
+    /*-- Specify custom fonts ~~~ must be imported above   --*/
+    --heading-font:    sans-serif;
+    --mono-font:       monospace;
+    --body-font:       sans-serif;
+    --navbar-font:     sans-serif;  /* websites + blogs only */
+  }
+
+  /*-- ARTICLE METADATA --*/
+  d-byline {
+    --heading-size:    0.6rem;
+    --heading-color:   rgba(0, 0, 0, 0.5);
+    --body-size:       0.8rem;
+    --body-color:      rgba(0, 0, 0, 0.8);
+  }
+
+  /*-- ARTICLE TABLE OF CONTENTS --*/
+  .d-contents {
+    --heading-size:    18px;
+    --contents-size:   13px;
+  }
+
+  /*-- ARTICLE APPENDIX --*/
+  d-appendix {
+    --heading-size:    15px;
+    --heading-color:   rgba(0, 0, 0, 0.65);
+    --text-size:       0.8em;
+    --text-color:      rgba(0, 0, 0, 0.5);
+  }
+
+  /*-- WEBSITE HEADER + FOOTER --*/
+  /* These properties only apply to Distill sites and blogs  */
+
+  .distill-site-header {
+    --title-size:       18px;
+    --text-color:       rgba(255, 255, 255, 0.8);
+    --text-size:        15px;
+    --hover-color:      white;
+    --bkgd-color:       #0F2E3D;
+  }
+
+  .distill-site-footer {
+    --text-color:       rgba(255, 255, 255, 0.8);
+    --text-size:        15px;
+    --hover-color:      white;
+    --bkgd-color:       #0F2E3D;
+  }
+
+  /*-- Additional custom styles --*/
+  /* Add any additional CSS rules below                      */
+  </style>
+  <style type="text/css">
+  /* base variables */
+
+  /* Edit the CSS properties in this file to create a custom
+     Distill theme. Only edit values in the right column
+     for each row; values shown are the CSS defaults.
+     To return any property to the default,
+     you may set its value to: unset
+     All rows must end with a semi-colon.                      */
+
+  /* Optional: embed custom fonts here with `@import`          */
+  /* This must remain at the top of this file.                 */
+
+  :root {
+    --custom-grey60: rgb(102, 102, 102);
+    --custom-grey20: rgb(204, 204, 204);
+    --custom-grey10: rgb(230, 230, 230);
+    --custom-blue: rgb(0, 114, 188);
+    --custom-lightblue: rgb(204, 227, 242);
+    --custom-orange: rgb(255, 127, 42); 
+    --custom-lightorange: rgb(255, 204, 170); 
+  }
+
+  @font-face {
+   font-family: 'NanumSquare';
+   font-weight: 400;
+   src: url(NanumSquare/NanumSquareR.eot);
+   src: url(NanumSquare/NanumSquareR.eot?#iefix) format('embedded-opentype'),
+        url(NanumSquare/NanumSquareR.woff) format('woff'),
+        url(NanumSquare/NanumSquareR.ttf) format('truetype');
+  }
+  @font-face {
+   font-family: 'NanumSquare';
+   font-weight: 700;
+   src: url(NanumSquare/NanumSquareB.eot);
+   src: url(NanumSquare/NanumSquareB.eot?#iefix) format('embedded-opentype'),
+        url(NanumSquare/NanumSquareB.woff) format('woff'),
+        url(NanumSquare/NanumSquareB.ttf) format('truetype');
+  }
+  @font-face {
+   font-family: 'NanumSquare';
+   font-weight: 800;
+   src: url(NanumSquare/NanumSquareEB.eot);
+   src: url(NanumSquare/NanumSquareEB.eot?#iefix) format('embedded-opentype'),
+        url(NanumSquare/NanumSquareEB.woff) format('woff'),
+        url(NanumSquare/NanumSquareEB.ttf) format('truetype');
+  }
+  @font-face {
+   font-family: 'NanumSquare';
+   font-weight: 300;
+   src: url(NanumSquare/NanumSquareL.eot);
+   src: url(NanumSquare/NanumSquareL.eot?#iefix) format('embedded-opentype'),
+        url(NanumSquare/NanumSquareL.woff) format('woff'),
+        url(NanumSquare/NanumSquareL.ttf) format('truetype');
+  }
+
+  html {
+    /*-- Main font sizes --*/
+    --title-size:      50px;
+    --body-size:       1.06rem;
+    --code-size:       14px;
+    --aside-size:      12px;
+    --fig-cap-size:    13px;
+    /*-- Main font colors --*/
+    --title-color:     #000000;
+    --header-color:    rgba(0, 0, 0, 0.8);
+    --body-color:      rgba(0, 0, 0, 0.8);
+    --aside-color:     rgba(0, 0, 0, 0.6);
+    --fig-cap-color:   rgba(0, 0, 0, 0.6);
+    /*-- Specify custom fonts ~~~ must be imported above   --*/
+    --heading-font:    sans-serif;
+    --mono-font:       monospace;
+    --body-font:       sans-serif;
+    --navbar-font:     sans-serif;  /* websites + blogs only */
+  }
+
+  /*-- ARTICLE METADATA --*/
+  d-byline {
+    --heading-size:    0.6rem;
+    --heading-color:   rgba(0, 0, 0, 0.5);
+    --body-size:       0.8rem;
+    --body-color:      rgba(0, 0, 0, 0.8);
+  }
+
+  /*-- ARTICLE TABLE OF CONTENTS --*/
+  .d-contents {
+    --heading-size:    18px;
+    --contents-size:   13px;
+  }
+
+  /*-- ARTICLE APPENDIX --*/
+  d-appendix {
+    --heading-size:    15px;
+    --heading-color:   rgba(0, 0, 0, 0.65);
+    --text-size:       0.8em;
+    --text-color:      rgba(0, 0, 0, 0.5);
+  }
+
+  /*-- WEBSITE HEADER + FOOTER --*/
+  /* These properties only apply to Distill sites and blogs  */
+
+  .distill-site-header {
+    --title-size:       18px;
+    --text-color:       rgba(255, 255, 255, 0.8);
+    --text-size:        15px;
+    --hover-color:      white;
+    --bkgd-color:       var(--custom-blue);
+  }
+
+  .distill-site-footer {
+    --text-color:       rgba(255, 255, 255, 0.8);
+    --text-size:        15px;
+    --hover-color:      white;
+    --bkgd-color:       var(--custom-blue);
+  }
+
+  /*-- Additional custom styles --*/
+  /* Add any additional CSS rules below                      */
+
+  .preface {
+    font-size: 11pt;
+    background-color: var(--custom-lightblue);
+    margin-top: 2em;
+    margin-bottom: 0.5em;  
+    padding: 1.5em;
+    padding-top: 1em;
+    border-color: DodgerBlue;
+  }
+
+  h1 {
+    font-size: 30px !important;  
+    color: var(--custom-blue) !important;
+    font-family: NanumSquare !important;
+    margin-top: 15px !important;
+    padding-top: 15px !important;  
+    margin-bottom: 15px !important;
+    font-weight: bold;
+  }
+
+  h2 {
+    font-size: 25px !important;  
+    color: var(--custom-blue) !important;  
+    font-family: NanumSquare !important;  
+    padding-top: 15px !important;  
+    margin-top: 15px !important;
+    padding-bottom: 10px !important;  
+    margin-bottom: 10px !important;    
+    font-weight: bold;
+  }
+
+  h3 {
+    font-size: 20px !important;  
+    color: var(--custom-blue) !important;  
+    font-family: NanumSquare !important;  
+    margin-top: 10px !important;
+    margin-bottom: 10px !important; 
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;   
+    font-weight: bold;
+  }
+
+  d-byline h3 {
+    font-size: 0.6rem !important;   
+    font-weight: 400 !important;   
+    color: rgba(0, 0, 0, 0.5) !important;   
+    margin: 0 !important;   
+  }
+      
+  d-byline {
+    contain: content;
+    overflow: hidden;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 0.8rem;
+    line-height: 1.8em;
+    padding: 1.5rem 0;
+    min-height: 1.8em;
+  } 
+
+  .bg-blue,
+  .bg-orange,
+  .bg-grey {
+    padding: 1.6em;
+    margin-top: 1.0em;
+    margin-bottom: 1.0em;
+  }
+  .bg-blue {
+    background-color: var(--custom-lightblue);
+  }
+  .bg-orange {
+    background-color: var(--custom-lightorange);
+  }
+  .bg-grey {
+    background-color: var(--custom-grey20);
+  }
+  .bg-blue > *:last-child,
+  .bg-orange > *:last-child,
+  .bg-grey > *:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .panelset {
+    --panel-tab-foreground: currentColor !important;
+    --panel-tab-active-foreground: var(--custom-blue) !important;
+    --panel-tab-active-background: var(--custom-lightblue) !important;  
+    --panel-tab-hover-foreground: var(--custom-blue) !important;
+    --panel-tabs-border-bottom: #ddd !important;
+    --panel-tab-inactive-opacity: 0.5 !important;
+  }
+
+  .panel {
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+  </style>
+  <style type="text/css">
+  /* base style */
+
+  /* FONT FAMILIES */
+
+  :root {
+    --heading-default: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+    --mono-default: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    --body-default: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  body,
+  .posts-list .post-preview p,
+  .posts-list .description p {
+    font-family: var(--body-font), var(--body-default);
+  }
+
+  h1, h2, h3, h4, h5, h6,
+  .posts-list .post-preview h2,
+  .posts-list .description h2 {
+    font-family: var(--heading-font), var(--heading-default);
+  }
+
+  d-article div.sourceCode code,
+  d-article pre code {
+    font-family: var(--mono-font), var(--mono-default);
+  }
+
+
+  /*-- TITLE --*/
+  d-title h1,
+  .posts-list > h1 {
+    color: var(--title-color, black);
+  }
+
+  d-title h1 {
+    font-size: var(--title-size, 50px);
+  }
+
+  /*-- HEADERS --*/
+  d-article h1,
+  d-article h2,
+  d-article h3,
+  d-article h4,
+  d-article h5,
+  d-article h6 {
+    color: var(--header-color, rgba(0, 0, 0, 0.8));
+  }
+
+  /*-- BODY --*/
+  d-article > p,  /* only text inside of <p> tags */
+  d-article > ul, /* lists */
+  d-article > ol {
+    color: var(--body-color, rgba(0, 0, 0, 0.8));
+    font-size: var(--body-size, 1.06rem);
+  }
+
+
+  /*-- CODE --*/
+  d-article div.sourceCode code,
+  d-article pre code {
+    font-size: var(--code-size, 14px);
+  }
+
+  /*-- ASIDE --*/
+  d-article aside {
+    font-size: var(--aside-size, 12px);
+    color: var(--aside-color, rgba(0, 0, 0, 0.6));
+  }
+
+  /*-- FIGURE CAPTIONS --*/
+  figure .caption,
+  figure figcaption,
+  .figure .caption {
+    font-size: var(--fig-cap-size, 13px);
+    color: var(--fig-cap-color, rgba(0, 0, 0, 0.6));
+  }
+
+  /*-- METADATA --*/
+  d-byline h3 {
+    font-size: var(--heading-size, 0.6rem);
+    color: var(--heading-color, rgba(0, 0, 0, 0.5));
+  }
+
+  d-byline {
+    font-size: var(--body-size, 0.8rem);
+    color: var(--body-color, rgba(0, 0, 0, 0.8));
+  }
+
+  d-byline a,
+  d-article d-byline a {
+    color: var(--body-color, rgba(0, 0, 0, 0.8));
+  }
+
+  /*-- TABLE OF CONTENTS --*/
+  .d-contents nav h3 {
+    font-size: var(--heading-size, 18px);
+  }
+
+  .d-contents nav a {
+    font-size: var(--contents-size, 13px);
+  }
+
+  /*-- APPENDIX --*/
+  d-appendix h3 {
+    font-size: var(--heading-size, 15px);
+    color: var(--heading-color, rgba(0, 0, 0, 0.65));
+  }
+
+  d-appendix {
+    font-size: var(--text-size, 0.8em);
+    color: var(--text-color, rgba(0, 0, 0, 0.5));
+  }
+
+  d-appendix d-footnote-list a.footnote-backlink {
+    color: var(--text-color, rgba(0, 0, 0, 0.5));
+  }
+
+  /*-- WEBSITE HEADER + FOOTER --*/
+  .distill-site-header .title {
+    font-size: var(--title-size, 18px);
+    font-family: var(--navbar-font), var(--heading-default);
+  }
+
+  .distill-site-header a,
+  .nav-dropdown .nav-dropbtn {
+    font-family: var(--navbar-font), var(--heading-default);
+  }
+
+  .nav-dropdown .nav-dropbtn {
+    color: var(--text-color, rgba(255, 255, 255, 0.8));
+    font-size: var(--text-size, 15px);
+  }
+
+  .distill-site-header a:hover,
+  .nav-dropdown:hover .nav-dropbtn {
+    color: var(--hover-color, white);
+  }
+
+  .distill-site-header {
+    font-size: var(--text-size, 15px);
+    color: var(--text-color, rgba(255, 255, 255, 0.8));
+    background-color: var(--bkgd-color, #0F2E3D);
+  }
+
+  .distill-site-footer {
+    font-size: var(--text-size, 15px);
+    color: var(--text-color, rgba(255, 255, 255, 0.8));
+    background-color: var(--bkgd-color, #0F2E3D);
+  }
+
+  .distill-site-footer a:hover {
+    color: var(--hover-color, white);
+  }</style>
+  <!--/radix_placeholder_distill-->
+  <script src="site_libs/header-attrs-2.8/header-attrs.js"></script>
+  <script src="site_libs/popper-2.6.0/popper.min.js"></script>
+  <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="site_libs/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="site_libs/anchor-4.2.2/anchor.min.js"></script>
+  <script src="site_libs/bowser-1.9.3/bowser.min.js"></script>
+  <script src="site_libs/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="site_libs/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+  <!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"Classification Modeling","description":"Modeling and Evaluate, Predict for binary classification","authors":[{"author":"Choonghyun Ryu","authorURL":"https://dataholic.netlify.app/","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-11-30T00:00:00.000+00:00","citationText":"Ryu, 2021"}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<header class="header header--fixed" role="banner">
+<nav class="distill-site-nav distill-site-header">
+<div class="nav-left">
+<a class="logo" href="https://choonghyunryu.github.io/alookr/">
+<img src="fig/alookr.png" alt="Logo"/>
+</a>
+<a href="index.html" class="title">alookr vignettes</a>
+</div>
+<div class="nav-right">
+<a href="index.html">Introduce alookr</a>
+<a href="cleansing.html">Cleansing the Dataset</a>
+<a href="split.html">Splitting the Dataset</a>
+<a href="modeling.html">Classification Modeling</a>
+<a href="https://github.com/choonghyunryu/alookr">
+<i class="fab fa-github" aria-hidden="true"></i>
+</a>
+<a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
+</div>
+</nav>
+</header>
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>Classification Modeling</h1>
+<!--radix_placeholder_categories-->
+<!--/radix_placeholder_categories-->
+<p><p>Modeling and Evaluate, Predict for binary classification</p></p>
+</div>
+
+<div class="d-byline">
+  Choonghyun Ryu <a href="https://dataholic.netlify.app/" class="uri">https://dataholic.netlify.app/</a> 
+  
+<br/>2021-11-30
+</div>
+
+<div class="d-article">
+<div class="d-contents d-contents-float">
+<nav class="l-text toc figcaption" id="TOC">
+<h3>Contents</h3>
+<ul>
+<li><a href="#preface">Preface</a></li>
+<li><a href="#data-wisconsin-breast-cancer-data">Data: Wisconsin Breast Cancer Data</a></li>
+<li><a href="#preperation-the-data">Preperation the data</a>
+<ul>
+<li><a href="#fix-the-missing-value-with-dlookrimputate_na">Fix the missing value with <code>dlookr::imputate_na()</code></a></li>
+</ul></li>
+<li><a href="#split-data-set">Split data set</a>
+<ul>
+<li><a href="#splits-the-dataset-into-a-train-set-and-a-test-set-with-split_by">Splits the dataset into a train set and a test set with <code>split_by()</code></a></li>
+<li><a href="#check-missing-levels-in-the-train-set">Check missing levels in the train set</a></li>
+</ul></li>
+<li><a href="#handling-the-imbalanced-classes-data-with-sampling_target">Handling the imbalanced classes data with <code>sampling_target()</code></a>
+<ul>
+<li><a href="#issue-of-imbalanced-classes-data">Issue of imbalanced classes data</a></li>
+<li><a href="#handling-the-imbalanced-classes-data">Handling the imbalanced classes data</a></li>
+<li><a href="#resampling---oversample-minority-class">Resampling - oversample minority class</a></li>
+<li><a href="#resampling---undersample-majority-class">Resampling - undersample majority class</a></li>
+<li><a href="#generate-synthetic-samples---smote">Generate synthetic samples - SMOTE</a></li>
+</ul></li>
+<li><a href="#cleansing-the-dataset-for-classification-modeling-with-cleanse">Cleansing the dataset for classification modeling with <code>cleanse()</code></a></li>
+<li><a href="#extract-test-set-for-evaluation-of-the-model-with-extract_set">Extract test set for evaluation of the model with <code>extract_set()</code></a></li>
+<li><a href="#binary-classification-modeling-with-run_models">Binary classification modeling with <code>run_models()</code></a></li>
+<li><a href="#evaluate-the-model">Evaluate the model</a>
+<ul>
+<li><a href="#predict-test-set-using-fitted-model-with-run_predict">Predict test set using fitted model with <code>run_predict()</code></a></li>
+<li><a href="#calculate-the-performance-metric-with-run_performance">Calculate the performance metric with <code>run_performance()</code></a></li>
+<li><a href="#plot-the-roc-curve-with-plot_performance">Plot the ROC curve with <code>plot_performance()</code></a></li>
+<li><a href="#tunning-the-cut-off">Tunning the cut-off</a></li>
+<li><a href="#performance-comparison-between-prediction-and-tuned-cut-off-with-performance_metric">Performance comparison between prediction and tuned cut-off with <code>performance_metric()</code></a></li>
+</ul></li>
+<li><a href="#predict">Predict</a>
+<ul>
+<li><a href="#create-data-set-for-predict">Create data set for predict</a></li>
+<li><a href="#predict-with-alookr-and-dplyr">Predict with alookr and dplyr</a></li>
+</ul></li>
+</ul>
+</nav>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<h2 id="preface">Preface</h2>
+<p>Once the data set is ready for model development, the model is fitted, predicted and evaluated in the following ways:</p>
+<ul>
+<li>Cleansing the dataset</li>
+<li>Split the data into a train set and a test set</li>
+<li><strong>Modeling and Evaluate, Predict</strong>
+<ul>
+<li><strong>Modeling</strong>
+<ul>
+<li><strong>Binary classification modeling</strong></li>
+</ul></li>
+<li><strong>Evaluate the model</strong>
+<ul>
+<li><strong>Predict test set using fitted model</strong></li>
+<li><strong>Calculate the performance metric</strong></li>
+<li><strong>Plot the ROC curve</strong></li>
+<li><strong>Tunning the cut-off</strong><br />
+</li>
+</ul></li>
+<li><strong>Predict</strong>
+<ul>
+<li><strong>Predict</strong></li>
+<li><strong>Predict with cut-off</strong></li>
+</ul></li>
+</ul></li>
+</ul>
+<p>The alookr package makes these steps fast and easy:</p>
+<h2 id="data-wisconsin-breast-cancer-data">Data: Wisconsin Breast Cancer Data</h2>
+<p><code>BreastCancer</code> of <code>mlbench package</code> is a breast cancer data. The objective is to identify each of a number of benign or malignant classes.</p>
+<p>A data frame with 699 observations on 11 variables, one being a character variable, 9 being ordered or nominal, and 1 target class.:</p>
+<ul>
+<li><code>Id</code> : character. Sample code number</li>
+<li><code>Cl.thickness</code> : ordered factor. Clump Thickness</li>
+<li><code>Cell.size</code> : ordered factor. Uniformity of Cell Size</li>
+<li><code>Cell.shape</code> : ordered factor. Uniformity of Cell Shape</li>
+<li><code>Marg.adhesion</code> : ordered factor. Marginal Adhesion</li>
+<li><code>Epith.c.size</code> : ordered factor. Single Epithelial Cell Size</li>
+<li><code>Bare.nuclei</code> : factor. Bare Nuclei</li>
+<li><code>Bl.cromatin</code> : factor. Bland Chromatin</li>
+<li><code>Normal.nucleoli</code> : factor. Normal Nucleoli</li>
+<li><code>Mitoses</code> : factor. Mitoses</li>
+<li><code>Class</code> : factor. Class. level is <code>benign</code> and <code>malignant</code>.</li>
+</ul>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>mlbench</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>BreastCancer</span><span class='op'>)</span>
+
+<span class='co'># class of each variables</span>
+<span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>sapply</a></span><span class='op'>(</span><span class='va'>BreastCancer</span>, <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/class.html'>class</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>             Id    Cl.thickness       Cell.size      Cell.shape 
+    &quot;character&quot;       &quot;ordered&quot;       &quot;ordered&quot;       &quot;ordered&quot; 
+  Marg.adhesion    Epith.c.size     Bare.nuclei     Bl.cromatin 
+      &quot;ordered&quot;       &quot;ordered&quot;        &quot;factor&quot;        &quot;factor&quot; 
+Normal.nucleoli         Mitoses           Class 
+       &quot;factor&quot;        &quot;factor&quot;        &quot;factor&quot; </code></pre>
+</div>
+<h2 id="preperation-the-data">Preperation the data</h2>
+<p>Perform data preprocessing as follows.:</p>
+<ul>
+<li>Find and imputate variables that contain missing values.</li>
+<li>Split the data into a train set and a test set.</li>
+<li>To solve the imbalanced class, perform sampling in the train set of raw data.</li>
+<li>Cleansing the dataset for classification modeling.</li>
+</ul>
+<h3 id="fix-the-missing-value-with-dlookrimputate_na">Fix the missing value with <code>dlookr::imputate_na()</code></h3>
+<p>find the variables that include missing value. and imputate the missing value using imputate_na() in dlookr package.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/choonghyunryu/dlookr/'>dlookr</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span>
+
+<span class='co'># variable that have a missing value</span>
+<span class='fu'><a href='https://choonghyunryu.github.io/dlookr/reference/diagnose.data.frame.html'>diagnose</a></span><span class='op'>(</span><span class='va'>BreastCancer</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>missing_count</span> <span class='op'>&gt;</span> <span class='fl'>0</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 1 x 6
+  variables   types  missing_count missing_percent unique_count
+  &lt;chr&gt;       &lt;chr&gt;          &lt;int&gt;           &lt;dbl&gt;        &lt;int&gt;
+1 Bare.nuclei factor            16            2.29           11
+# … with 1 more variable: unique_rate &lt;dbl&gt;</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r">
+<span class='co'># imputation of missing value</span>
+<span class='va'>breastCancer</span> <span class='op'>&lt;-</span> <span class='va'>BreastCancer</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>Bare.nuclei <span class='op'>=</span> <span class='fu'><a href='https://choonghyunryu.github.io/dlookr/reference/imputate_na.html'>imputate_na</a></span><span class='op'>(</span><span class='va'>BreastCancer</span>, <span class='va'>Bare.nuclei</span>, <span class='va'>Class</span>,
+                         method <span class='op'>=</span> <span class='st'>"mice"</span>, no_attrs <span class='op'>=</span> <span class='cn'>TRUE</span>, print_flag <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<h2 id="split-data-set">Split data set</h2>
+<h3 id="splits-the-dataset-into-a-train-set-and-a-test-set-with-split_by">Splits the dataset into a train set and a test set with <code>split_by()</code></h3>
+<p><code>split_by()</code> in the alookr package splits the dataset into a train set and a test set.</p>
+<p>The ratio argument of the <code>split_by()</code> function specifies the ratio of the train set.</p>
+<p><code>split_by()</code> creates a class object named split_df.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>alookr</span><span class='op'>)</span>
+
+<span class='co'># split the data into a train set and a test set by default arguments</span>
+<span class='va'>sb</span> <span class='op'>&lt;-</span> <span class='va'>breastCancer</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/pkg/alookr/man/split_by.data.frame.html'>split_by</a></span><span class='op'>(</span>target <span class='op'>=</span> <span class='va'>Class</span><span class='op'>)</span>
+
+<span class='co'># show the class name</span>
+<span class='fu'><a href='https://rdrr.io/r/base/class.html'>class</a></span><span class='op'>(</span><span class='va'>sb</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] &quot;split_df&quot;   &quot;grouped_df&quot; &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r">
+<span class='co'># split the data into a train set and a test set by ratio = 0.6</span>
+<span class='va'>tmp</span> <span class='op'>&lt;-</span> <span class='va'>breastCancer</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/pkg/alookr/man/split_by.data.frame.html'>split_by</a></span><span class='op'>(</span><span class='va'>Class</span>, ratio <span class='op'>=</span> <span class='fl'>0.6</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p>The <code>summary()</code> function displays the following useful information about the split_df object:</p>
+<ul>
+<li>random seed : The random seed is the random seed used internally to separate the data</li>
+<li>split data : Information of splited data
+<ul>
+<li>train set count : number of train set</li>
+<li>test set count : number of test set</li>
+</ul></li>
+<li>target variable : Target variable name
+<ul>
+<li>minority class : name and ratio(In parentheses) of minority class</li>
+<li>majority class : name and ratio(In parentheses) of majority class</li>
+</ul></li>
+</ul>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># summary() display the some information</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>sb</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>** Split train/test set information **
+ + random seed        :  90170 
+ + split data            
+    - train set count :  489 
+    - test set count  :  210 
+ + target variable    :  Class 
+    - minority class  :  malignant (0.344778)
+    - majority class  :  benign (0.655222)</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r">
+<span class='co'># summary() display the some information</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>tmp</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>** Split train/test set information **
+ + random seed        :  85477 
+ + split data            
+    - train set count :  419 
+    - test set count  :  280 
+ + target variable    :  Class 
+    - minority class  :  malignant (0.344778)
+    - majority class  :  benign (0.655222)</code></pre>
+</div>
+<h3 id="check-missing-levels-in-the-train-set">Check missing levels in the train set</h3>
+<p>In the case of categorical variables, when a train set and a test set are separated, a specific level may be missing from the train set.</p>
+<p>In this case, there is no problem when fitting the model, but an error occurs when predicting with the model you created. Therefore, preprocessing is performed to avoid missing data preprocessing.</p>
+<p>In the following example, fortunately, there is no categorical variable that contains the missing levels in the train set.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># list of categorical variables in the train set that contain missing levels</span>
+<span class='va'>nolevel_in_train</span> <span class='op'>&lt;-</span> <span class='va'>sb</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/pkg/alookr/man/compare_target_category.html'>compare_target_category</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>train</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>variable</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='va'>pull</span>
+
+<span class='va'>nolevel_in_train</span>
+</code></pre>
+</div>
+<pre><code>character(0)</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r">
+<span class='co'># if any of the categorical variables in the train set contain a missing level, </span>
+<span class='co'># split them again.</span>
+<span class='kw'>while</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>nolevel_in_train</span><span class='op'>)</span> <span class='op'>&gt;</span> <span class='fl'>0</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='va'>sb</span> <span class='op'>&lt;-</span> <span class='va'>breastCancer</span> <span class='op'>%&gt;%</span>
+    <span class='fu'><a href='https://rdrr.io/pkg/alookr/man/split_by.data.frame.html'>split_by</a></span><span class='op'>(</span><span class='va'>Class</span><span class='op'>)</span>
+
+  <span class='va'>nolevel_in_train</span> <span class='op'>&lt;-</span> <span class='va'>sb</span> <span class='op'>%&gt;%</span>
+    <span class='fu'><a href='https://rdrr.io/pkg/alookr/man/compare_target_category.html'>compare_target_category</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+    <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>train</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+    <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>variable</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+    <span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+    <span class='va'>pull</span>
+<span class='op'>}</span>
+</code></pre>
+</div>
+</div>
+<h2 id="handling-the-imbalanced-classes-data-with-sampling_target">Handling the imbalanced classes data with <code>sampling_target()</code></h2>
+<h3 id="issue-of-imbalanced-classes-data">Issue of imbalanced classes data</h3>
+<p>Imbalanced classes(levels) data means that the number of one level of the frequency of the target variable is relatively small. In general, the proportion of positive classes is relatively small. For example, in the model of predicting spam, the class of interest spam is less than non-spam.</p>
+<p>Imbalanced classes data is a common problem in machine learning classification.</p>
+<p><code>table()</code> and <code>prop.table()</code> are traditionally useful functions for diagnosing imbalanced classes data. However, alookr’s <code>summary()</code> is simpler and provides more information.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># train set frequency table - imbalanced classes data</span>
+<span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>sb</span><span class='op'>$</span><span class='va'>Class</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>
+   benign malignant 
+      458       241 </code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r">
+<span class='co'># train set relative frequency table - imbalanced classes data</span>
+<span class='fu'><a href='https://rdrr.io/r/base/proportions.html'>prop.table</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>sb</span><span class='op'>$</span><span class='va'>Class</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>
+   benign malignant 
+0.6552217 0.3447783 </code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r">
+<span class='co'># using summary function - imbalanced classes data</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>sb</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>** Split train/test set information **
+ + random seed        :  90170 
+ + split data            
+    - train set count :  489 
+    - test set count  :  210 
+ + target variable    :  Class 
+    - minority class  :  malignant (0.344778)
+    - majority class  :  benign (0.655222)</code></pre>
+</div>
+<h3 id="handling-the-imbalanced-classes-data">Handling the imbalanced classes data</h3>
+<p>Most machine learning algorithms work best when the number of samples in each class are about equal. And most algorithms are designed to maximize accuracy and reduce error. So, we requre handling an imbalanced class problem.</p>
+<p>sampling_target() performs sampling to solve an imbalanced classes data problem.</p>
+<h3 id="resampling---oversample-minority-class">Resampling - oversample minority class</h3>
+<p>Oversampling can be defined as adding more copies of the minority class.</p>
+<p>Oversampling is performed by specifying “ubOver” in the method argument of the <code>sampling_target()</code> function.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># to balanced by over sampling</span>
+<span class='va'>train_over</span> <span class='op'>&lt;-</span> <span class='va'>sb</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/pkg/alookr/man/sampling_target.html'>sampling_target</a></span><span class='op'>(</span>method <span class='op'>=</span> <span class='st'>"ubOver"</span><span class='op'>)</span>
+
+<span class='co'># frequency table </span>
+<span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>train_over</span><span class='op'>$</span><span class='va'>Class</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>
+   benign malignant 
+      318       318 </code></pre>
+</div>
+<h3 id="resampling---undersample-majority-class">Resampling - undersample majority class</h3>
+<p>Undersampling can be defined as removing some observations of the majority class.</p>
+<p>Undersampling is performed by specifying “ubUnder” in the method argument of the <code>sampling_target()</code> function.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># to balanced by under sampling</span>
+<span class='va'>train_under</span> <span class='op'>&lt;-</span> <span class='va'>sb</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/pkg/alookr/man/sampling_target.html'>sampling_target</a></span><span class='op'>(</span>method <span class='op'>=</span> <span class='st'>"ubUnder"</span><span class='op'>)</span>
+
+<span class='co'># frequency table </span>
+<span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>train_under</span><span class='op'>$</span><span class='va'>Class</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>
+   benign malignant 
+      171       171 </code></pre>
+</div>
+<h3 id="generate-synthetic-samples---smote">Generate synthetic samples - SMOTE</h3>
+<p>SMOTE(Synthetic Minority Oversampling Technique) uses a nearest neighbors algorithm to generate new and synthetic data.</p>
+<p>SMOTE is performed by specifying “ubSMOTE” in the method argument of the <code>sampling_target()</code> function.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># to balanced by SMOTE</span>
+<span class='va'>train_smote</span> <span class='op'>&lt;-</span> <span class='va'>sb</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/pkg/alookr/man/sampling_target.html'>sampling_target</a></span><span class='op'>(</span>seed <span class='op'>=</span> <span class='fl'>1234L</span>, method <span class='op'>=</span> <span class='st'>"ubSMOTE"</span><span class='op'>)</span>
+
+<span class='co'># frequency table </span>
+<span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>train_smote</span><span class='op'>$</span><span class='va'>Class</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>
+   benign malignant 
+      684       513 </code></pre>
+</div>
+<h2 id="cleansing-the-dataset-for-classification-modeling-with-cleanse">Cleansing the dataset for classification modeling with <code>cleanse()</code></h2>
+<p>The <code>cleanse()</code> cleanse the dataset for classification modeling.</p>
+<p>This function is useful when fit the classification model. This function does the following.:</p>
+<ul>
+<li>Remove the variable with only one value.</li>
+<li>And remove variables that have a unique number of values relative to the number of observations for a character or categorical variable.
+<ul>
+<li>In this case, it is a variable that corresponds to an identifier or an identifier.</li>
+</ul></li>
+<li>And converts the character to factor.</li>
+</ul>
+<p>In this example, The <code>cleanse()</code> function removed a variable ID with a high unique rate.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># clean the training set</span>
+<span class='va'>train</span> <span class='op'>&lt;-</span> <span class='va'>train_smote</span> <span class='op'>%&gt;%</span>
+  <span class='va'>cleanse</span>
+</code></pre>
+</div>
+<pre><code>── Checking unique value ─────────────────────────── unique value is one ──
+No variables that unique value is one.
+
+── Checking unique rate ─────────────────────────────── high unique rate ──
+• Id = 424(0.35421888053467)
+
+── Checking character variables ─────────────────────── categorical data ──
+No character variables.</code></pre>
+</div>
+<h2 id="extract-test-set-for-evaluation-of-the-model-with-extract_set">Extract test set for evaluation of the model with <code>extract_set()</code></h2>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># extract test set</span>
+<span class='va'>test</span> <span class='op'>&lt;-</span> <span class='va'>sb</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/pkg/alookr/man/extract_set.html'>extract_set</a></span><span class='op'>(</span>set <span class='op'>=</span> <span class='st'>"test"</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<h2 id="binary-classification-modeling-with-run_models">Binary classification modeling with <code>run_models()</code></h2>
+<p><code>run_models()</code> performs some representative binary classification modeling using <code>split_df</code> object created by <code>split_by()</code>.</p>
+<p><code>run_models()</code> executes the process in parallel when fitting the model. However, it is not supported in MS-Windows operating system and RStudio environment.</p>
+<p>Currently supported algorithms are as follows.:</p>
+<ul>
+<li>logistic : logistic regression using <code>stats</code> package</li>
+<li>rpart : Recursive Partitioning Trees using <code>rpart</code> package</li>
+<li>ctree : Conditional Inference Trees using <code>party</code> package</li>
+<li>randomForest :Classification with Random Forest using <code>randomForest</code> package</li>
+<li>ranger : A Fast Implementation of Random Forests using <code>ranger</code> package</li>
+<li>xgboost : Extreme Gradient Boosting using <code>xgboost</code> package</li>
+</ul>
+<p><code>run_models()</code> returns a <code>model_df</code> class object.</p>
+<p>The <code>model_df</code> class object contains the following variables.:</p>
+<ul>
+<li>step : character. The current stage in the classification modeling process.
+<ul>
+<li>For objects created with <code>run_models()</code>, the value of the variable is “1.Fitted”.</li>
+</ul></li>
+<li>model_id : model identifiers</li>
+<li>target : name of target variable</li>
+<li>positive : positive class in target variable</li>
+<li>fitted_model : list. Fitted model object by model_id’s algorithms</li>
+</ul>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>result</span> <span class='op'>&lt;-</span> <span class='va'>train</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://rdrr.io/pkg/alookr/man/run_models.html'>run_models</a></span><span class='op'>(</span>target <span class='op'>=</span> <span class='st'>"Class"</span>, positive <span class='op'>=</span> <span class='st'>"malignant"</span><span class='op'>)</span>
+<span class='va'>result</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 7 x 7
+  step     model_id    target is_factor positive negative fitted_model
+  &lt;chr&gt;    &lt;chr&gt;       &lt;chr&gt;  &lt;lgl&gt;     &lt;chr&gt;    &lt;chr&gt;    &lt;list&gt;      
+1 1.Fitted logistic    Class  TRUE      maligna… benign   &lt;glm&gt;       
+2 1.Fitted rpart       Class  TRUE      maligna… benign   &lt;rpart&gt;     
+3 1.Fitted ctree       Class  TRUE      maligna… benign   &lt;BinaryTr&gt;  
+4 1.Fitted randomFore… Class  TRUE      maligna… benign   &lt;rndmFrs.&gt;  
+5 1.Fitted ranger      Class  TRUE      maligna… benign   &lt;ranger&gt;    
+6 1.Fitted xgboost     Class  TRUE      maligna… benign   &lt;xgb.Bstr&gt;  
+# … with 1 more row</code></pre>
+</div>
+<h2 id="evaluate-the-model">Evaluate the model</h2>
+<p>Evaluate the predictive performance of fitted models.</p>
+<h3 id="predict-test-set-using-fitted-model-with-run_predict">Predict test set using fitted model with <code>run_predict()</code></h3>
+<p><code>run_predict()</code> predict the test set using <code>model_df</code> class fitted by <code>run_models()</code>.</p>
+<p><code>run_predict ()</code> is executed in parallel when predicting by model. However, it is not supported in MS-Windows operating system and RStudio environment.</p>
+<p>The <code>model_df</code> class object contains the following variables.:</p>
+<ul>
+<li>step : character. The current stage in the classification modeling process.
+<ul>
+<li>For objects created with <code>run_predict()</code>, the value of the variable is “2.Predicted”.</li>
+</ul></li>
+<li>model_id : character. Type of fit model.</li>
+<li>target : character. Name of target variable.</li>
+<li>positive : character. Level of positive class of binary classification.</li>
+<li>fitted_model : list. Fitted model object by model_id’s algorithms.</li>
+<li>predicted : result of predcit by each models</li>
+</ul>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>pred</span> <span class='op'>&lt;-</span> <span class='va'>result</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/pkg/alookr/man/run_predict.html'>run_predict</a></span><span class='op'>(</span><span class='va'>test</span><span class='op'>)</span>
+<span class='va'>pred</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 7 x 8
+  step      model_id   target is_factor positive negative fitted_model
+  &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;  &lt;lgl&gt;     &lt;chr&gt;    &lt;chr&gt;    &lt;list&gt;      
+1 2.Predic… logistic   Class  TRUE      maligna… benign   &lt;glm&gt;       
+2 2.Predic… rpart      Class  TRUE      maligna… benign   &lt;rpart&gt;     
+3 2.Predic… ctree      Class  TRUE      maligna… benign   &lt;BinaryTr&gt;  
+4 2.Predic… randomFor… Class  TRUE      maligna… benign   &lt;rndmFrs.&gt;  
+5 2.Predic… ranger     Class  TRUE      maligna… benign   &lt;ranger&gt;    
+6 2.Predic… xgboost    Class  TRUE      maligna… benign   &lt;xgb.Bstr&gt;  
+# … with 1 more row, and 1 more variable: predicted &lt;list&gt;</code></pre>
+</div>
+<h3 id="calculate-the-performance-metric-with-run_performance">Calculate the performance metric with <code>run_performance()</code></h3>
+<p><code>run_performance()</code> calculate the performance metric of <code>model_df</code> class predicted by <code>run_predict()</code>.</p>
+<p><code>run_performance ()</code> is performed in parallel when calculating the performance evaluation metrics However, it is not supported in MS-Windows operating system and RStudio environment.</p>
+<p>The <code>model_df</code> class object contains the following variables.:</p>
+<ul>
+<li>step : character. The current stage in the classification modeling process.
+<ul>
+<li>For objects created with <code>run_performance()</code>, the value of the variable is “3.Performanced”.</li>
+</ul></li>
+<li>model_id : character. Type of fit model.</li>
+<li>target : character. Name of target variable.</li>
+<li>positive : character. Level of positive class of binary classification.</li>
+<li>fitted_model : list. Fitted model object by model_id’s algorithms</li>
+<li>predicted : list. Predicted value by individual model. Each value has a predict_class class object.</li>
+<li>performance : list. Calculate metrics by individual model. Each value has a numeric vector.</li>
+</ul>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Calculate performace metrics.</span>
+<span class='va'>perf</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/alookr/man/run_performance.html'>run_performance</a></span><span class='op'>(</span><span class='va'>pred</span><span class='op'>)</span>
+<span class='va'>perf</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 7 x 7
+  step    model_id  target positive fitted_model predicted performance
+  &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;    &lt;list&gt;       &lt;list&gt;    &lt;list&gt;     
+1 3.Perf… logistic  Class  maligna… &lt;glm&gt;        &lt;fct [21… &lt;dbl [15]&gt; 
+2 3.Perf… rpart     Class  maligna… &lt;rpart&gt;      &lt;fct [21… &lt;dbl [15]&gt; 
+3 3.Perf… ctree     Class  maligna… &lt;BinaryTr&gt;   &lt;fct [21… &lt;dbl [15]&gt; 
+4 3.Perf… randomFo… Class  maligna… &lt;rndmFrs.&gt;   &lt;fct [21… &lt;dbl [15]&gt; 
+5 3.Perf… ranger    Class  maligna… &lt;ranger&gt;     &lt;fct [21… &lt;dbl [15]&gt; 
+6 3.Perf… xgboost   Class  maligna… &lt;xgb.Bstr&gt;   &lt;fct [21… &lt;dbl [15]&gt; 
+# … with 1 more row</code></pre>
+</div>
+<p>The performance variable contains a list object, which contains 15 performance metrics:</p>
+<ul>
+<li>ZeroOneLoss : Normalized Zero-One Loss(Classification Error Loss).</li>
+<li>Accuracy : Accuracy.</li>
+<li>Precision : Precision.</li>
+<li>Recall : Recall.</li>
+<li>Sensitivity : Sensitivity.</li>
+<li>Specificity : Specificity.</li>
+<li>F1_Score : F1 Score.</li>
+<li>Fbeta_Score : F-Beta Score.</li>
+<li>LogLoss : Log loss / Cross-Entropy Loss.</li>
+<li>AUC : Area Under the Receiver Operating Characteristic Curve (ROC AUC).</li>
+<li>Gini : Gini Coefficient.</li>
+<li>PRAUC : Area Under the Precision-Recall Curve (PR AUC).</li>
+<li>LiftAUC : Area Under the Lift Chart.</li>
+<li>GainAUC : Area Under the Gain Chart.</li>
+<li>KS_Stat : Kolmogorov-Smirnov Statistic.</li>
+</ul>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Performance by analytics models</span>
+<span class='va'>performance</span> <span class='op'>&lt;-</span> <span class='va'>perf</span><span class='op'>$</span><span class='va'>performance</span>
+<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>performance</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='va'>perf</span><span class='op'>$</span><span class='va'>model_id</span>
+<span class='va'>performance</span>
+</code></pre>
+</div>
+<pre><code>$logistic
+ZeroOneLoss    Accuracy   Precision      Recall Sensitivity 
+ 0.06666667  0.93333333  0.90000000  0.90000000  0.90000000 
+Specificity    F1_Score Fbeta_Score     LogLoss         AUC 
+ 0.95000000  0.90000000  0.90000000  2.23608577  0.93147959 
+       Gini       PRAUC     LiftAUC     GainAUC     KS_Stat 
+ 0.85918367  0.06524816  1.23041695  0.78765306 86.42857143 
+
+$rpart
+ZeroOneLoss    Accuracy   Precision      Recall Sensitivity 
+ 0.04761905  0.95238095  0.89473684  0.97142857  0.97142857 
+Specificity    F1_Score Fbeta_Score     LogLoss         AUC 
+ 0.94285714  0.93150685  0.93150685  0.47177933  0.96418367 
+       Gini       PRAUC     LiftAUC     GainAUC     KS_Stat 
+ 0.93836735  0.68264643  1.88355147  0.80945578 92.14285714 
+
+$ctree
+ZeroOneLoss    Accuracy   Precision      Recall Sensitivity 
+ 0.05238095  0.94761905  0.88311688  0.97142857  0.97142857 
+Specificity    F1_Score Fbeta_Score     LogLoss         AUC 
+ 0.93571429  0.92517007  0.92517007  0.41646571  0.98056122 
+       Gini       PRAUC     LiftAUC     GainAUC     KS_Stat 
+ 0.96163265  0.79154066  1.99494847  0.82037415 91.42857143 
+
+$randomForest
+ZeroOneLoss    Accuracy   Precision      Recall Sensitivity 
+ 0.01904762  0.98095238  0.94594595  1.00000000  1.00000000 
+Specificity    F1_Score Fbeta_Score     LogLoss         AUC 
+ 0.97142857  0.97222222  0.97222222  0.07998188  0.99500000 
+       Gini       PRAUC     LiftAUC     GainAUC     KS_Stat 
+ 0.99000000  0.88843776  2.03490054  0.83000000 97.14285714 
+
+$ranger
+ZeroOneLoss    Accuracy   Precision      Recall Sensitivity 
+ 0.02857143  0.97142857  0.92105263  1.00000000  1.00000000 
+Specificity    F1_Score Fbeta_Score     LogLoss         AUC 
+ 0.95714286  0.95890411  0.95890411  0.07413234  0.99673469 
+       Gini       PRAUC     LiftAUC     GainAUC     KS_Stat 
+ 0.99346939  0.90723276  2.03167355  0.83115646 97.14285714 
+
+$xgboost
+ZeroOneLoss    Accuracy   Precision      Recall Sensitivity 
+ 0.02857143  0.97142857  0.93243243  0.98571429  0.98571429 
+Specificity    F1_Score Fbeta_Score     LogLoss         AUC 
+ 0.96428571  0.95833333  0.95833333  0.09591749  0.99489796 
+       Gini       PRAUC     LiftAUC     GainAUC     KS_Stat 
+ 0.98959184  0.94665981  2.09969906  0.82993197 95.00000000 
+
+$lasso
+ZeroOneLoss    Accuracy   Precision      Recall Sensitivity 
+ 0.02857143  0.97142857  0.95714286  0.95714286  0.95714286 
+Specificity    F1_Score Fbeta_Score     LogLoss         AUC 
+ 0.97857143  0.95714286  0.95714286  0.05848341  0.99816327 
+       Gini       PRAUC     LiftAUC     GainAUC     KS_Stat 
+ 0.99632653  0.98201545  2.08070669  0.83210884 97.14285714 </code></pre>
+</div>
+<p>If you change the list object to tidy format, you’ll see the following at a glance:</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Convert to matrix for compare performace.</span>
+<span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>sapply</a></span><span class='op'>(</span><span class='va'>performance</span>, <span class='st'>"c"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>               logistic       rpart       ctree randomForest
+ZeroOneLoss  0.06666667  0.04761905  0.05238095   0.01904762
+Accuracy     0.93333333  0.95238095  0.94761905   0.98095238
+Precision    0.90000000  0.89473684  0.88311688   0.94594595
+Recall       0.90000000  0.97142857  0.97142857   1.00000000
+Sensitivity  0.90000000  0.97142857  0.97142857   1.00000000
+Specificity  0.95000000  0.94285714  0.93571429   0.97142857
+F1_Score     0.90000000  0.93150685  0.92517007   0.97222222
+Fbeta_Score  0.90000000  0.93150685  0.92517007   0.97222222
+LogLoss      2.23608577  0.47177933  0.41646571   0.07998188
+AUC          0.93147959  0.96418367  0.98056122   0.99500000
+Gini         0.85918367  0.93836735  0.96163265   0.99000000
+PRAUC        0.06524816  0.68264643  0.79154066   0.88843776
+LiftAUC      1.23041695  1.88355147  1.99494847   2.03490054
+GainAUC      0.78765306  0.80945578  0.82037415   0.83000000
+KS_Stat     86.42857143 92.14285714 91.42857143  97.14285714
+                 ranger     xgboost       lasso
+ZeroOneLoss  0.02857143  0.02857143  0.02857143
+Accuracy     0.97142857  0.97142857  0.97142857
+Precision    0.92105263  0.93243243  0.95714286
+Recall       1.00000000  0.98571429  0.95714286
+Sensitivity  1.00000000  0.98571429  0.95714286
+Specificity  0.95714286  0.96428571  0.97857143
+F1_Score     0.95890411  0.95833333  0.95714286
+Fbeta_Score  0.95890411  0.95833333  0.95714286
+LogLoss      0.07413234  0.09591749  0.05848341
+AUC          0.99673469  0.99489796  0.99816327
+Gini         0.99346939  0.98959184  0.99632653
+PRAUC        0.90723276  0.94665981  0.98201545
+LiftAUC      2.03167355  2.09969906  2.08070669
+GainAUC      0.83115646  0.82993197  0.83210884
+KS_Stat     97.14285714 95.00000000 97.14285714</code></pre>
+</div>
+<p><code>compare_performance()</code> return a list object(results of compared model performance). and list has the following components:</p>
+<ul>
+<li>recommend_model : character. The name of the model that is recommended as the best among the various models.</li>
+<li>top_count : numeric. The number of best performing performance metrics by model.</li>
+<li>mean_rank : numeric. Average of ranking individual performance metrics by model.</li>
+<li>top_metric : list. The name of the performance metric with the best performance on individual performance metrics by model.</li>
+</ul>
+<p>In this example, <code>compare_performance()</code> recommend the <strong>“ranger”</strong> model.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Compaire the Performance metrics of each model</span>
+<span class='va'>comp_perf</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/alookr/man/compare_performance.html'>compare_performance</a></span><span class='op'>(</span><span class='va'>pred</span><span class='op'>)</span>
+<span class='va'>comp_perf</span>
+</code></pre>
+</div>
+<pre><code>$recommend_model
+[1] &quot;lasso&quot;
+
+$top_metric_count
+    logistic        rpart        ctree randomForest       ranger 
+           0            0            0            4            2 
+     xgboost        lasso 
+           1            7 
+
+$mean_rank
+    logistic        rpart        ctree randomForest       ranger 
+    6.692308     5.576923     5.576923     2.307692     2.576923 
+     xgboost        lasso 
+    3.153846     2.115385 
+
+$top_metric
+$top_metric$logistic
+NULL
+
+$top_metric$rpart
+NULL
+
+$top_metric$ctree
+NULL
+
+$top_metric$randomForest
+[1] &quot;ZeroOneLoss&quot; &quot;Accuracy&quot;    &quot;Recall&quot;      &quot;F1_Score&quot;   
+
+$top_metric$ranger
+[1] &quot;Recall&quot;  &quot;KS_Stat&quot;
+
+$top_metric$xgboost
+[1] &quot;LiftAUC&quot;
+
+$top_metric$lasso
+[1] &quot;Precision&quot;   &quot;Specificity&quot; &quot;LogLoss&quot;     &quot;AUC&quot;        
+[5] &quot;Gini&quot;        &quot;PRAUC&quot;       &quot;GainAUC&quot;    </code></pre>
+</div>
+<h3 id="plot-the-roc-curve-with-plot_performance">Plot the ROC curve with <code>plot_performance()</code></h3>
+<p><code>compare_performance()</code> plot ROC curve.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Plot ROC curve</span>
+<span class='fu'><a href='https://rdrr.io/pkg/alookr/man/plot_performance.html'>plot_performance</a></span><span class='op'>(</span><span class='va'>pred</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="modeling_files/figure-html5/ROC-1.png" width="672" /></p>
+</div>
+<h3 id="tunning-the-cut-off">Tunning the cut-off</h3>
+<p>In general, if the prediction probability is greater than 0.5 in the binary classification model, it is predicted as <code>positive class</code>. In other words, 0.5 is used for the cut-off value. This applies to most model algorithms. However, in some cases, the performance can be tuned by changing the cut-off value.</p>
+<p><code>plot_cutoff ()</code> visualizes a plot to select the cut-off value, and returns the cut-off value.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>pred_best</span> <span class='op'>&lt;-</span> <span class='va'>pred</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>model_id</span> <span class='op'>==</span> <span class='va'>comp_perf</span><span class='op'>$</span><span class='va'>recommend_model</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>predicted</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='va'>pull</span> <span class='op'>%&gt;%</span> 
+  <span class='va'>.</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://rdrr.io/r/base/attr.html'>attr</a></span><span class='op'>(</span><span class='st'>"pred_prob"</span><span class='op'>)</span>
+
+<span class='va'>cutoff</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/alookr/man/plot_cutoff.html'>plot_cutoff</a></span><span class='op'>(</span><span class='va'>pred_best</span>, <span class='va'>test</span><span class='op'>$</span><span class='va'>Class</span>, <span class='st'>"malignant"</span>, type <span class='op'>=</span> <span class='st'>"mcc"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<img src="modeling_files/figure-html5/cutoff-1.png" width="672" />
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>cutoff</span>
+</code></pre>
+</div>
+<pre><code>[1] 0.31</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r">
+<span class='va'>cutoff2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/alookr/man/plot_cutoff.html'>plot_cutoff</a></span><span class='op'>(</span><span class='va'>pred_best</span>, <span class='va'>test</span><span class='op'>$</span><span class='va'>Class</span>, <span class='st'>"malignant"</span>, type <span class='op'>=</span> <span class='st'>"density"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<img src="modeling_files/figure-html5/cutoff-2.png" width="672" />
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>cutoff2</span>
+</code></pre>
+</div>
+<pre><code>[1] 0.6908</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r">
+<span class='va'>cutoff3</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/alookr/man/plot_cutoff.html'>plot_cutoff</a></span><span class='op'>(</span><span class='va'>pred_best</span>, <span class='va'>test</span><span class='op'>$</span><span class='va'>Class</span>, <span class='st'>"malignant"</span>, type <span class='op'>=</span> <span class='st'>"prob"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<img src="modeling_files/figure-html5/cutoff-3.png" width="672" />
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>cutoff3</span>
+</code></pre>
+</div>
+<pre><code>[1] 0.31</code></pre>
+</div>
+<h3 id="performance-comparison-between-prediction-and-tuned-cut-off-with-performance_metric">Performance comparison between prediction and tuned cut-off with <code>performance_metric()</code></h3>
+<p>Compare the performance of the original prediction with that of the tuned cut-off. Compare the cut-off with the non-cut model for the model with the best performance <code>comp_perf$recommend_model</code>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>comp_perf</span><span class='op'>$</span><span class='va'>recommend_model</span>
+</code></pre>
+</div>
+<pre><code>[1] &quot;lasso&quot;</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r">
+<span class='co'># extract predicted probability</span>
+<span class='va'>idx</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/which.html'>which</a></span><span class='op'>(</span><span class='va'>pred</span><span class='op'>$</span><span class='va'>model_id</span> <span class='op'>==</span> <span class='va'>comp_perf</span><span class='op'>$</span><span class='va'>recommend_model</span><span class='op'>)</span>
+<span class='va'>pred_prob</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/attr.html'>attr</a></span><span class='op'>(</span><span class='va'>pred</span><span class='op'>$</span><span class='va'>predicted</span><span class='op'>[[</span><span class='va'>idx</span><span class='op'>]</span><span class='op'>]</span>, <span class='st'>"pred_prob"</span><span class='op'>)</span>
+
+<span class='co'># or, extract predicted probability using dplyr</span>
+<span class='va'>pred_prob</span> <span class='op'>&lt;-</span> <span class='va'>pred</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>model_id</span> <span class='op'>==</span> <span class='va'>comp_perf</span><span class='op'>$</span><span class='va'>recommend_model</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>predicted</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='va'>pull</span> <span class='op'>%&gt;%</span> 
+  <span class='st'>"[["</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://rdrr.io/r/base/attr.html'>attr</a></span><span class='op'>(</span><span class='st'>"pred_prob"</span><span class='op'>)</span>
+
+<span class='co'># predicted probability</span>
+<span class='va'>pred_prob</span>  
+</code></pre>
+</div>
+<pre><code>  [1] 0.0174789286 0.0519610507 0.0032789015 0.0175209919 0.0032869065
+  [6] 0.0064426070 0.0061333348 0.3549603767 0.9816825081 0.8597953337
+ [11] 0.9586400416 0.9829636303 0.9807564163 0.8423412779 0.5789667959
+ [16] 0.0018752648 0.0174789286 0.0198675394 0.9962768052 0.0343359964
+ [21] 0.1091094158 0.9998443243 0.9999145915 0.0174789286 0.0036986645
+ [26] 0.0032789015 0.9999991641 0.9963338820 0.0640467480 0.9998845141
+ [31] 0.9999213746 0.0018752648 0.9996409596 0.0100335360 0.9295070011
+ [36] 0.0062525812 0.0198675394 0.9981252268 0.0015038391 0.0018798495
+ [41] 0.9855421605 0.0029222429 0.4612051835 0.2741038918 0.0026301961
+ [46] 0.0989389839 0.0254864819 0.9881447326 0.9962328663 0.0057410803
+ [51] 0.9932372955 0.0174789286 0.0519610507 0.9882845720 0.0046075035
+ [56] 0.9112488848 0.0049576630 0.0174789286 0.0423490116 0.0010718527
+ [61] 0.0057550617 0.0302801908 0.9999561536 0.9993322438 0.0032789015
+ [66] 0.9999961972 0.9991843932 0.0036806781 0.9968751445 0.0026301961
+ [71] 0.9799969986 0.6646602131 0.9880154141 0.0155439828 0.9987995118
+ [76] 0.0015219772 0.9996213115 0.9990884566 0.9992499097 0.9980651483
+ [81] 0.7459408405 0.0032789015 0.7459408405 0.0114572781 0.0065363079
+ [86] 0.0032789015 0.9999947042 0.7308047117 0.0010718527 0.9906787589
+ [91] 0.0032789015 0.0032789015 0.9349685763 0.0032789015 0.9994083226
+ [96] 0.0040969162 0.0015038391 0.0063453940 0.8544840270 0.8291636536
+[101] 0.0032789015 0.0106386198 0.0594483184 0.0315084513 0.9794110022
+[106] 0.0032789015 0.9600304045 0.9946262997 0.9999201601 0.0010718527
+[111] 0.9999965110 0.0012181350 0.0017089763 0.9996232840 0.0057690770
+[116] 0.0087428342 0.0069747680 0.0142279160 0.1077781495 0.9992975276
+[121] 0.0018752648 0.0654855639 0.9774531461 0.0082488763 0.0013775228
+[126] 0.0018798495 0.9988106910 0.0101668011 0.0041516620 0.9976670706
+[131] 0.9996056910 0.0107418740 0.0089487465 0.0065917287 0.0141284785
+[136] 0.0032949311 0.0061482656 0.0057690770 0.9925235631 0.0080984931
+[141] 0.3111760831 0.3249935903 0.9841031438 0.0008594184 0.0076723952
+[146] 0.0100578652 0.0174789286 0.0058351459 0.0022745826 0.0010718527
+[151] 0.0015038391 0.0039423091 0.0013367271 0.0071863706 0.0174789286
+[156] 0.0223098968 0.0080788648 0.0057550617 0.0322182336 0.0100578652
+[161] 0.0303521088 0.9994192211 0.0015075171 0.9970521458 0.1240980381
+[166] 0.1239033127 0.0175209919 0.0302801908 0.0032789015 0.0057550617
+[171] 0.0106900042 0.0165141914 0.9975221618 0.0018752648 0.0186581120
+[176] 0.0107418740 0.9515212505 0.0100822529 0.9988956651 0.9999999199
+[181] 0.0026366216 0.0100578652 0.5456300156 0.0010718527 0.0051179763
+[186] 0.0263618680 0.0010718527 0.9999789834 0.0057550617 0.0015219772
+[191] 0.0013513340 0.0199857423 0.0057550617 0.0010718527 0.0018752648
+[196] 0.0021309597 0.9963922021 0.0057410803 0.0234847484 0.0018752648
+[201] 0.0100822529 0.0010718527 0.0010718527 0.0010718527 0.0057690770
+[206] 0.9286862826 0.0032949311 0.0115808996 0.9980659398 0.9854399625</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r">
+<span class='co'># compaire Accuracy</span>
+<span class='fu'><a href='https://rdrr.io/pkg/alookr/man/performance_metric.html'>performance_metric</a></span><span class='op'>(</span><span class='va'>pred_prob</span>, <span class='va'>test</span><span class='op'>$</span><span class='va'>Class</span>, <span class='st'>"malignant"</span>, <span class='st'>"Accuracy"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] 0.9714286</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/pkg/alookr/man/performance_metric.html'>performance_metric</a></span><span class='op'>(</span><span class='va'>pred_prob</span>, <span class='va'>test</span><span class='op'>$</span><span class='va'>Class</span>, <span class='st'>"malignant"</span>, <span class='st'>"Accuracy"</span>,
+                   cutoff <span class='op'>=</span> <span class='va'>cutoff</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] 0.9809524</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r">
+<span class='co'># compaire Confusion Matrix</span>
+<span class='fu'><a href='https://rdrr.io/pkg/alookr/man/performance_metric.html'>performance_metric</a></span><span class='op'>(</span><span class='va'>pred_prob</span>, <span class='va'>test</span><span class='op'>$</span><span class='va'>Class</span>, <span class='st'>"malignant"</span>, <span class='st'>"ConfusionMatrix"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>           actual
+predict     benign malignant
+  benign       137         3
+  malignant      3        67</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/pkg/alookr/man/performance_metric.html'>performance_metric</a></span><span class='op'>(</span><span class='va'>pred_prob</span>, <span class='va'>test</span><span class='op'>$</span><span class='va'>Class</span>, <span class='st'>"malignant"</span>, <span class='st'>"ConfusionMatrix"</span>, 
+                   cutoff <span class='op'>=</span> <span class='va'>cutoff</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>           actual
+predict     benign malignant
+  benign       136         0
+  malignant      4        70</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r">
+<span class='co'># compaire F1 Score</span>
+<span class='fu'><a href='https://rdrr.io/pkg/alookr/man/performance_metric.html'>performance_metric</a></span><span class='op'>(</span><span class='va'>pred_prob</span>, <span class='va'>test</span><span class='op'>$</span><span class='va'>Class</span>, <span class='st'>"malignant"</span>, <span class='st'>"F1_Score"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] 0.9571429</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/pkg/alookr/man/performance_metric.html'>performance_metric</a></span><span class='op'>(</span><span class='va'>pred_prob</span>, <span class='va'>test</span><span class='op'>$</span><span class='va'>Class</span>,  <span class='st'>"malignant"</span>, <span class='st'>"F1_Score"</span>, 
+                   cutoff <span class='op'>=</span> <span class='va'>cutoff</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] 0.9722222</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/pkg/alookr/man/performance_metric.html'>performance_metric</a></span><span class='op'>(</span><span class='va'>pred_prob</span>, <span class='va'>test</span><span class='op'>$</span><span class='va'>Class</span>,  <span class='st'>"malignant"</span>, <span class='st'>"F1_Score"</span>, 
+                   cutoff <span class='op'>=</span> <span class='va'>cutoff2</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] 0.9635036</code></pre>
+</div>
+<p>If the performance of the tuned cut-off is good, use it as a cut-off to predict positives.</p>
+<h2 id="predict">Predict</h2>
+<p>If you have selected a good model from several models, then perform the prediction with that model.</p>
+<h3 id="create-data-set-for-predict">Create data set for predict</h3>
+<p>Create sample data for predicting by extracting 100 samples from the data set used in the previous under sampling example.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>data_pred</span> <span class='op'>&lt;-</span> <span class='va'>train_under</span> <span class='op'>%&gt;%</span> 
+  <span class='va'>cleanse</span> 
+</code></pre>
+</div>
+<pre><code>── Checking unique value ─────────────────────────── unique value is one ──
+No variables that unique value is one.
+
+── Checking unique rate ─────────────────────────────── high unique rate ──
+• Id = 336(0.982456140350877)
+
+── Checking character variables ─────────────────────── categorical data ──
+No character variables.</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r">
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1234L</span><span class='op'>)</span>
+<span class='va'>data_pred</span> <span class='op'>&lt;-</span> <span class='va'>data_pred</span> <span class='op'>%&gt;%</span> 
+  <span class='va'>nrow</span> <span class='op'>%&gt;%</span> 
+  <span class='va'>seq</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>50</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='va'>data_pred</span><span class='op'>[</span><span class='va'>.</span>, <span class='op'>]</span>
+</code></pre>
+</div>
+</div>
+<h3 id="predict-with-alookr-and-dplyr">Predict with alookr and dplyr</h3>
+<p>Do a predict using the <code>dplyr</code> package. The last <code>factor()</code> function eliminates unnecessary information.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>pred_actual</span> <span class='op'>&lt;-</span> <span class='va'>pred</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>model_id</span> <span class='op'>==</span> <span class='va'>comp_perf</span><span class='op'>$</span><span class='va'>recommend_model</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://rdrr.io/pkg/alookr/man/run_predict.html'>run_predict</a></span><span class='op'>(</span><span class='va'>data_pred</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>predicted</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='va'>pull</span> <span class='op'>%&gt;%</span> 
+  <span class='st'>"[["</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='op'>)</span>
+
+<span class='va'>pred_actual</span>
+</code></pre>
+</div>
+<pre><code> [1] benign    benign    benign    malignant malignant benign   
+ [7] malignant benign    benign    benign    benign    benign   
+[13] benign    benign    malignant benign    malignant malignant
+[19] malignant benign    malignant benign    benign    malignant
+[25] benign    malignant malignant benign    benign    malignant
+[31] malignant malignant benign    malignant malignant benign   
+[37] malignant benign    malignant malignant malignant malignant
+[43] benign    benign    benign    malignant benign    benign   
+[49] malignant malignant
+Levels: benign malignant</code></pre>
+</div>
+<p>If you want to predict by cut-off, specify the <code>cutoff</code> argument in the <code>run_predict()</code> function as follows.:</p>
+<p>In the example, there is no difference between the results of using cut-off and not.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>pred_actual2</span> <span class='op'>&lt;-</span> <span class='va'>pred</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>model_id</span> <span class='op'>==</span> <span class='va'>comp_perf</span><span class='op'>$</span><span class='va'>recommend_model</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://rdrr.io/pkg/alookr/man/run_predict.html'>run_predict</a></span><span class='op'>(</span><span class='va'>data_pred</span>, <span class='va'>cutoff</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>predicted</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='va'>pull</span> <span class='op'>%&gt;%</span> 
+  <span class='st'>"[["</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='op'>)</span>
+
+<span class='va'>pred_actual2</span>
+</code></pre>
+</div>
+<pre><code> [1] benign    benign    benign    malignant malignant benign   
+ [7] malignant benign    benign    benign    benign    benign   
+[13] benign    benign    malignant benign    malignant malignant
+[19] malignant benign    malignant benign    benign    malignant
+[25] benign    malignant malignant benign    benign    malignant
+[31] malignant malignant benign    malignant malignant benign   
+[37] malignant benign    malignant malignant malignant malignant
+[43] benign    benign    benign    malignant benign    malignant
+[49] malignant malignant
+Levels: benign malignant</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r">
+<span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>pred_actual</span> <span class='op'>!=</span> <span class='va'>pred_actual2</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] 1</code></pre>
+</div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<!--radix_placeholder_article_footer-->
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+
+<!--radix_placeholder_site_after_body-->
+<div class="distill-site-nav distill-site-footer">
+<!--Created by bitR.
+<br>-->
+Licensed under the <a href="https://opensource.org/licenses/lgpl-3.0.html" target="_blank">GNU General Public License version 3.0</a>
+</div>
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom"></div>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<!--/radix_placeholder_navigation_after_body-->
+
+</body>
+
+</html>

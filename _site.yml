@@ -1,0 +1,25 @@
+name: "about dlookr"
+title: "alookr vignettes"
+description: |
+  dlookr package vignette site
+output_dir: "docs"
+navbar:
+  logo:
+    image: fig/alookr.png
+    href: https://choonghyunryu.github.io/alookr/
+  right:
+    - text: "Introduce alookr"
+      href: index.html
+    - text: "Cleansing the Dataset"
+      href: cleansing.html
+    - text: "Splitting the Dataset"
+      href: split.html
+    - text: "Classification Modeling"
+      href: modeling.html  
+    - icon: fab fa-github
+      href: https://github.com/choonghyunryu/alookr          
+output: 
+  distill::distill_article:
+    theme: theme.css
+    includes:
+      after_body: footer.html       
